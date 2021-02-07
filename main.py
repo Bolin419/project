@@ -21,6 +21,6 @@ for i in range(len(List_ofPlayerandGroup)):
             Group_relation.append([List_ofPlayerandGroup[i][0],List_ofPlayerandGroup[i+2][0],relation])
         else:           #if they are in the same group they have relationship
             relation=1 #have relation will put 1
-            Group_relation.append([List_ofPlayerandGroup[i][0],List_ofPlayerandGroup[i+][0],relation])
+            Group_relation.append([List_ofPlayerandGroup[i][0],List_ofPlayerandGroup[i+2][0],relation])
 
 print(Group_relation)
