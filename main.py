@@ -17,3 +17,20 @@ for i in range(len(List_ofPlayerandGroup)):
 
 print(Group_relation)
 
+List_of_Group=[['Group 1','Karl Malone','Karl Malone','Jeff Hornacek', "1990-2000"],['Group 2','Wilt Chamberlain','Jerry West','Elgin Baylor',"1965-1975"],['Group 3','Tim Duncan','Tony Parker','Manu Ginobili',"2000-2010"],
+               ['Group 4','Steph Curry','Klay Thompson','Kevin Durant',"2010-2020"],['Group 5','LeBron James','Dwyane Wade','Chris Bosh',"2010-2020"],['Group 6','Machel Jordan','Scottie Pippen','Dennis Rodman',"1990-2000"],
+               ['Group 7',"Shaquille O'Neal",'Kobe Bryant',"2000-2010"],['Group 8','PAUL PIERCE','KEVIN GARNETT','Ray Allen',"2000-2010"],['Group 9','SHAWN KEMP','GARY PAYTON',"1990-2000"],['Group 10','LARRY BIRD','KEVIN McHALE',"1980-1990"],
+               ['Group 11','Tracy McGrady','Ming Yao',"2000-2010"],['Group 12','Magic Johnson','Kareem Abdul-Jabbar','James Worthy',"1980-1990"],['Group 13','Steve Nash',"Amar'e Stoudemire",'Shawn Marion',"2000-2010"],
+               ['Group 14','Carmelon Anthony','Allen Iverson','Chris Andersen',"2000-2010"]]
+GP_relation=[]
+temp2 = []
+for i in range(len(List_of_Group)):
+    for j in range(len(List_of_Group)):
+        if(List_of_Group[i][-1]==List_of_Group[j][-1]):
+            re=1
+            GP_relation.append([List_of_Group[i][0],List_of_Group[j][0],re])
+        else:
+            re=0
+            GP_relation.append([List_of_Group[i][0],List_of_Group[j][0],re])
+print(GP_relation)
+
