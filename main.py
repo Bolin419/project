@@ -15,7 +15,7 @@ for i in range(len(List_ofPlayerandGroup)):
         temp.append(List_ofPlayerandGroup[i][1] != List_ofPlayerandGroup[j][1])
     Group_relation.append(temp)
 
-print(Group_relation)
+#print(Group_relation)
 
 List_of_Group=[['Group 1','Karl Malone','Karl Malone','Jeff Hornacek', "1990-2000"],['Group 2','Wilt Chamberlain','Jerry West','Elgin Baylor',"1965-1975"],['Group 3','Tim Duncan','Tony Parker','Manu Ginobili',"2000-2010"],
                ['Group 4','Steph Curry','Klay Thompson','Kevin Durant',"2010-2020"],['Group 5','LeBron James','Dwyane Wade','Chris Bosh',"2010-2020"],['Group 6','Machel Jordan','Scottie Pippen','Dennis Rodman',"1990-2000"],
@@ -32,5 +32,30 @@ for i in range(len(List_of_Group)):
         else:
             re=0
             GP_relation.append([List_of_Group[i][0],List_of_Group[j][0],re])
-print(GP_relation)
+#print(GP_relation)
+def get_playername(li):
+    player_list=[]
+    for i in li:
+        player_list.append(i[0])
+    return player_list
+
+def powerset(xs):
+    result=[[]]
+    result_2=[]
+    for x in xs:
+        new=[subset+[x]for subset in result]
+        result.extend(new)
+    for c in result:
+        if len(c) <= 5:
+            result_2.append(c)
+    return result_2
+
+
+LL=["1","2",'3','4',"5",'6']
+
+Final_Li=get_playername(List_ofPlayerandGroup)
+
+#print powerset(Final_Li)
+print powerset(LL)
+
 
