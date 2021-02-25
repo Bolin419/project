@@ -40,22 +40,17 @@ def get_playername(li):
     return player_list
 
 def powerset(xs):
-    result=[[]]
-    result_2=[]
-    for x in xs:
-        new=[subset+[x]for subset in result]
-        result.extend(new)
-    for c in result:
-        if len(c) <= 5:
-            result_2.append(c)
-    return result_2
+    q=[]
+    for i in range(1,6):
+        q.extend(itertools.combinations(xs,i))
+    return q
 
 
 LL=["1","2",'3','4',"5",'6']
 
 Final_Li=get_playername(List_ofPlayerandGroup)
 
-#print powerset(Final_Li)
-print powerset(LL)
+print powerset(Final_Li)
+
 
 
