@@ -63,10 +63,14 @@ def get_details(key,s):
             break
     return Player_details
 
-x= get_details(key1,Player_ability)
-for key in x:
-    if key == 'Karl Malone':
-        x[key]+=1
-        print (x[key])
-print((x))
+PL= get_details(key1,Player_ability)
+
+def rating(str):
+    for i in PL:
+        if i == str:
+            ra=PL[i]
+            print (ra)
+    return ra
+
+rating('Kobe Bryant')
 
