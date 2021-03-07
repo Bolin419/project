@@ -52,5 +52,21 @@ Final_Li=get_playername(List_ofPlayerandGroup)
 
 print powerset(Final_Li)
 
+### Player dictionary
+key1=get_playername(List_ofPlayerandGroup)
+def get_details(key,s):
+    Player_details={}
+    for i in key:
+        for y in s:
+            Player_details[i] = y
+            Player_ability.remove(y)
+            break
+    return Player_details
 
+x= get_details(key1,Player_ability)
+for key in x:
+    if key == 'Karl Malone':
+        x[key]+=1
+        print (x[key])
+print((x))
 
