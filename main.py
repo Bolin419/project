@@ -53,7 +53,9 @@ LL=["1","2",'3','4',"5",'6']
 
 L=['Karl Malone','Tony Stocketon','Jeff Hornacek','Wilt Chamberlain','Jerry West','Elgin Baylor','Tim Duncan']
 Final_Li=get_playername(List_ofPlayerandGroup)
-kk=powerset(Final_Li)
+kk=powerset(Final_Li[40])
+
+
 ### Player dictionary
 key1=get_playername(List_ofPlayerandGroup)
 def get_details(key,s):
@@ -111,3 +113,8 @@ def GPRA(set):
 
 rr=GPRA(kk)
 print(rr[741])
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3ce3e8ecef3576f565311b862347b13d8f795ef3
