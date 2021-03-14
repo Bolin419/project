@@ -89,4 +89,4 @@ def GPRA(set):
             Memo.append([i,ds])
     return Memo
 
-print(GPRA(kk))
+#print(GPRA(kk))
