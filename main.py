@@ -53,7 +53,7 @@ LL=["1","2",'3','4',"5",'6']
 
 L=['Karl Malone','Tony Stocketon','Jeff Hornacek','Wilt Chamberlain','Jerry West','Elgin Baylor','Tim Duncan']
 Final_Li=get_playername(List_ofPlayerandGroup)
-kk=powerset(Final_Li[40])
+kk=powerset(Final_Li)
 
 
 ### Player dictionary
@@ -84,37 +84,37 @@ def Get_GPnum(Str):
     return N
 
 #Calculate
-def GPRA(set):
-    Memo=[]
+def Get_MeMo(set):
+    Memo={}
     for i in set:
         if len(i)== 1:
             ds=rating(i[0])
-            Memo.append([i,ds])
+            Memo[i]=ds
         if len(i)== 2:
             N1=Get_GPnum(i[0])
             N2=Get_GPnum(i[1])
             if N1 == N2:
                 ds=rating(i[0])+rating(i[1])+3
-                Memo.append([i,ds])
-            else:
-                ds = rating(i[0]) + rating(i[1])
-                Memo.append([i,ds])
-        if len(i) ==3:
+                Memo[i]=ds
+        if len(i)== 3:
             N1 = Get_GPnum(i[0])
             N2 = Get_GPnum(i[1])
             N3 = Get_GPnum(i[2])
             if N1 == N2 == N3:
                 ds=rating(i[0])+rating(i[1])+rating(i[2])+5
-                Memo.append([i,ds])
-            else:
-                ds = rating(i[0]) + rating(i[1]) + rating(i[2])
-                Memo.append([i, ds])
+                Memo[i]=ds
+        else:
+            Memo[i]=0;
     return Memo
 
-rr=GPRA(kk)
-print(rr[741])
-<<<<<<< HEAD
-=======
+def Strength(set,memo):
+    if not (set in memo):
+        strength = 0;
+        for subset in itertools.combinations(set, len(set)-1):
+            strength += Strength(subset,memo)
+        strength / (len(set)-1)
+        memo[set] = strength
+    return memo[set]
 
-
->>>>>>> 3ce3e8ecef3576f565311b862347b13d8f795ef3
+memo=Get_MeMo(kk)
+print(Strength(('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion','Steph Curry', 'Klay Thompson'), memo))
