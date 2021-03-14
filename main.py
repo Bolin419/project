@@ -53,7 +53,9 @@ LL=["1","2",'3','4',"5",'6']
 
 L=['Karl Malone','Tony Stocketon','Jeff Hornacek','Wilt Chamberlain','Jerry West','Elgin Baylor','Tim Duncan']
 Final_Li=get_playername(List_ofPlayerandGroup)
-kk=powerset(Final_Li)
+kk=powerset(Final_Li[40])
+
+
 ### Player dictionary
 key1=get_playername(List_ofPlayerandGroup)
 def get_details(key,s):
@@ -74,7 +76,42 @@ def rating(str):
             #print (ra)
     return ra
 
-for i in kk:
-    if len(i) == 2:
-        two_Ra=rating(i[0])+rating(i[1])
-        print i,two_Ra
+#return player GRoup
+def Get_GPnum(Str):
+    for i in List_ofPlayerandGroup:
+        if Str == i[0]:
+            N=i[1]
+    return N
+
+#Calculate
+def GPRA(set):
+    Memo=[]
+    for i in set:
+        if len(i)== 1:
+            ds=rating(i[0])
+            Memo.append([i,ds])
+        if len(i)== 2:
+            N1=Get_GPnum(i[0])
+            N2=Get_GPnum(i[1])
+            if N1 == N2:
+                ds=rating(i[0])+rating(i[1])+3
+                Memo.append([i,ds])
+            else:
+                ds = rating(i[0]) + rating(i[1])
+                Memo.append([i,ds])
+        if len(i) ==3:
+            N1 = Get_GPnum(i[0])
+            N2 = Get_GPnum(i[1])
+            N3 = Get_GPnum(i[2])
+            if N1 == N2 == N3:
+                ds=rating(i[0])+rating(i[1])+rating(i[2])+5
+                Memo.append([i,ds])
+            else:
+                ds = rating(i[0]) + rating(i[1]) + rating(i[2])
+                Memo.append([i, ds])
+    return Memo
+
+rr=GPRA(kk)
+print(rr[741])
+
+
