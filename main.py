@@ -53,7 +53,9 @@ LL=["1","2",'3','4',"5",'6']
 
 L=['Karl Malone','Tony Stocketon','Jeff Hornacek','Wilt Chamberlain','Jerry West','Elgin Baylor','Tim Duncan']
 Final_Li=get_playername(List_ofPlayerandGroup)
-kk=powerset(Final_Li)
+kk=powerset(Final_Li[40])
+
+
 ### Player dictionary
 key1=get_playername(List_ofPlayerandGroup)
 def get_details(key,s):
@@ -66,7 +68,6 @@ def get_details(key,s):
     return Player_details
 
 PL= get_details(key1,Player_ability)
-
 def rating(str):
     for i in PL:
         if i == str:
@@ -74,7 +75,18 @@ def rating(str):
             #print (ra)
     return ra
 
-for i in kk:
-    if len(i) == 2:
-        two_Ra=rating(i[0])+rating(i[1])
-        print i,two_Ra
+def GPRA(set):
+    Memo=[]
+    for i in set:
+        if len(i)== 1:
+            ds=rating(i[0])
+            Memo.append([i,ds])
+        if len(i)== 2:
+            ds=rating(i[0])+rating(i[1])
+            Memo.append([i,ds])
+        if len(i) ==3:
+            ds=rating(i[0])+rating(i[1])+rating(i[2])
+            Memo.append([i,ds])
+    return Memo
+
+print(GPRA(kk))
