@@ -113,5 +113,8 @@ def GPRA(set):
 
 rr=GPRA(kk)
 print(rr[741])
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 3ce3e8ecef3576f565311b862347b13d8f795ef3
