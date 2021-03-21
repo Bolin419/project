@@ -1,5 +1,6 @@
 import tkinter
 from PIL import Image, ImageTk
+import csv
 
 def center_window(top,w, h):
     # 获取屏幕 宽、高
@@ -9,6 +10,10 @@ def center_window(top,w, h):
     x = (ws/2) - (w/2)
     y = (hs/2) - (h/2)
     top.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+
+
+
 
 top = tkinter.Tk()
 top.title('Fantasy League Team')
@@ -35,4 +40,4 @@ img8 = tkinter.Label(text='金币：0', font=('黑体',10),fg='Goldenrod')
 img8.place(x=10, y=5)
 img9 = tkinter.Label(text='球队战力：0', font=('黑体',10),fg='red')
 img9.place(x=10, y=30)
-top.mainloop()
+#top.mainloop()
