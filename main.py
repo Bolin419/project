@@ -118,3 +118,9 @@ def Strength(set,memo):
 
 memo=Get_MeMo(kk)
 print(Strength(('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion','Steph Curry', 'Klay Thompson'), memo))
+
+
+#[队伍，elo评分]
+team_Elo=[['1.Utah Jazz 1998',1766],['2.Lakers 1971',1753],['3.Suprs 2003', 1764],['4.Worries 2017',1865],
+		  ['5.Heat 2013',1774],['6.Bulls 1996',1853],['7.Leakers 2001',1779],['8.Cletics 2008', 1751],['9.SuperSonics 1996',1731],
+		  ['10.Cletics 1986',1816],['11.Rockets 200',1697],['12.Lakers 1987',1758],['13.Sun 2006',1743],['14.Nuggets 2009',2009]]
