@@ -1,6 +1,6 @@
 
 import itertools
-
+import csv
 List_ofPlayerandGroup=[['Karl Malone',1],['Tony Stocketon',1],['Jeff Hornacek',1],['Wilt Chamberlain',2],['Jerry West',2],['Elgin Baylor',2],['Tim Duncan',3],['Tony Parker',3],['Manu Ginobili',3],
                        ['Steph Curry',4],['Klay Thompson',4],['Kevin Durant',4],['LeBron James',5],['Dwyane Wade',5],['Chris Bosh',5],['Machel Jordan',6],['Scottie Pippen',6],['Dennis Rodman',6],
                        ["Shaquille O'Neal",7],['Kobe Bryant',7],['PAUL PIERCE',8],['KEVIN GARNETT',8],['Ray Allen',8],['SHAWN KEMP',9],['GARY PAYTON',9],['LARRY BIRD',10],['KEVIN McHALE ',10],
@@ -124,3 +124,11 @@ print(Strength(('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion','Steph Curry',
 team_Elo=[['1.Utah Jazz 1998',1766],['2.Lakers 1971',1753],['3.Suprs 2003', 1764],['4.Worries 2017',1865],
 		  ['5.Heat 2013',1774],['6.Bulls 1996',1853],['7.Leakers 2001',1779],['8.Cletics 2008', 1751],['9.SuperSonics 1996',1731],
 		  ['10.Cletics 1986',1816],['11.Rockets 200',1697],['12.Lakers 1987',1758],['13.Sun 2006',1743],['14.Nuggets 2009',2009]]
+
+csv_file=csv.reader(open('/Users/zbl/Desktop/球员1.csv','r'))
+print(csv_file)
+content=[]
+for i in csv_file:
+    content.append(i)
+print(content)
+
