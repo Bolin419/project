@@ -132,3 +132,51 @@ for i in csv_file:
     content.append(i)
 print(content)
 
+#average of 144 players
+content.remove(['\ufeffNo.', 'Team name', 'Player name', 'rating'])
+all_p=0
+for i in content:
+    all_p=all_p+int(i[3])
+all_p=all_p/len(content)
+#print(all_p)
+
+#ratio value for elo
+print(1767.6/79.2)
+
+#player rating
+def power(Str):
+    playerab=0
+    for i in content:
+        if i[2]==Str:
+            playerab=i[3]
+    return playerab
+
+
+#return the sum strength of the team and team number
+def Team_infor(String,Str1,Str2,Str3):
+    count=0
+    team_sum=0
+    s1=s2=s3=0
+    k=0
+    t=0
+    f=3
+    for i in content:
+        if i[1] == String:
+            team_sum = team_sum + int(i[3])
+            count+=1
+            s1=int(power(Str1))
+            s2=int(power(Str2))
+            if Str3 == 'null':
+                s3=0
+                f=2
+            else:
+                s3=int(power(Str3))
+    t=(int(Get_teamElo(String)) / 22.3) * count - (team_sum - s1 - s2 - s3)
+    t=t/f
+    k=t-(s1+s2+s3)/f
+    return k
+
+
+relation_value=(Team_infor('Warriors','Kevin Durant','Stephen Curry','Klay Thompson'))
+print(relation_value)
+
