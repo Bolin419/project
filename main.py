@@ -125,6 +125,13 @@ team_Elo=[['1.Utah Jazz 1998',1766],['2.Lakers 1971',1753],['3.Suprs 2003', 1764
 		  ['5.Heat 2013',1774],['6.Bulls 1996',1853],['7.Leakers 2001',1779],['8.Cletics 2008', 1751],['9.SuperSonics 1996',1731],
 		  ['10.Cletics 1986',1816],['11.Rockets 200',1697],['12.Lakers 1987',1758],['13.Sun 2006',1743],['14.Nuggets 2009',2009]]
 
+def Get_teamElo(Str):
+    Elo=0
+    for i in team_Elo:
+        if i[0]== Str:
+            Elo=i[1]
+    return Elo
+
 csv_file=csv.reader(open('/Users/zbl/Desktop/球员1.csv','r'))
 print(csv_file)
 content=[]
