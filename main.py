@@ -180,3 +180,37 @@ def Team_infor(String,Str1,Str2,Str3):
 relation_value=(Team_infor('Warriors','Kevin Durant','Stephen Curry','Klay Thompson'))
 print(relation_value)
 
+#each team k
+cal_K_team=[[1,Team_infor('Utah Jazz','Karl Malone','John Stockton','Jeff Hornacek')],[2,Team_infor('Lakers 1971','Jerry West','Wilt Chamberlain','Gail Goodrich')],[3,Team_infor('Spurs','Tim Duncan','Tony Parker','Manu Ginobili')],[4,Team_infor('Warriors','Kevin Durant','Stephen Curry','Klay Thompson')],[5,Team_infor('Heat','LeBron James','Dwyane Wade','Chris Bosh')],[6,Team_infor('Bulls','Michael Jordan','Scottie Pippen','Dennis Rodman')],[7,Team_infor('Lakers 2001','Shaquille O’Neal','Kobe Bryant','null')],
+            [8,Team_infor('Celtics','Kevin Garnett','Paul Pierce','Ray Allen')],[9,Team_infor('Sonics','Gary Payton','Shawn Kemp','null')],[10,Team_infor('85-86 Celtics','Larry Bird','Kevin McHale','null')],[11,Team_infor('Rocket','Tracy McGrady','Yao Ming','null')],[12,Team_infor('Lakers 1987','Magic Johnson','Kareem Abdul-Jabbar','James Worthy')],[13,Team_infor('Suns','Steve Nash','Amar’e Stoudemire','Shawn Marion')],[14,Team_infor('Nuggest','Carmelo Anthony','Allen Iverson','Marcus Camby')],]
+#print(cal_K_team)
+
+
+
+#calculate the memo by acutal data
+def Data_memo(set):
+    Memo2 = {}
+    for i in set:
+        if len(i) == 1:
+            Ds = rating(i[0])
+            Memo2[i] = Ds
+        if len(i) == 2:
+            D1 = Get_GPnum(i[0])
+            D2 = Get_GPnum(i[1])
+            if D1 == D2:
+                K=cal_K_team[int(D1)-1][1]
+                Ds = (rating(i[0]) + rating(i[1]) + K)
+                Memo2[i] = Ds
+        if len(i) == 3:
+            D1 = Get_GPnum(i[0])
+            D2 = Get_GPnum(i[1])
+            D3 = Get_GPnum(i[2])
+            if D1 == D2 == D3:
+                K = cal_K_team[int(D1) - 1][1]
+                Ds = (rating(i[0]) + rating(i[1]) + rating(i[2]) + rating(i[2]) + rating(i[0]) + rating(i[1]) + K) / 2
+                Memo2[i] = Ds
+    return Memo2
+
+
+print(Data_memo(kk))
+
