@@ -83,7 +83,7 @@ def Get_GPnum(Str):
             N=i[1]
     return N
 
-#Calculate
+#Calculate MeMo by own predict
 def Get_MeMo(set):
     Memo={}
     for i in set:
@@ -94,25 +94,27 @@ def Get_MeMo(set):
             N1=Get_GPnum(i[0])
             N2=Get_GPnum(i[1])
             if N1 == N2:
-                ds=rating(i[0])+rating(i[1])+3
+                ds=(rating(i[0])+rating(i[1])+3)
                 Memo[i]=ds
         if len(i)== 3:
             N1 = Get_GPnum(i[0])
             N2 = Get_GPnum(i[1])
             N3 = Get_GPnum(i[2])
             if N1 == N2 == N3:
-                ds=rating(i[0])+rating(i[1])+rating(i[2])+5
+                ds=(rating(i[0])+rating(i[1])+rating(i[2])+rating(i[2])+rating(i[0])+rating(i[1])+5)/3
                 Memo[i]=ds
-        else:
-            Memo[i]=0;
     return Memo
 
-def Strength(set,memo):
+
+memo=Get_MeMo(kk)
+#print(memo)
+#print(kk)
+def Strength(set):
     if not (set in memo):
         strength = 0;
         for subset in itertools.combinations(set, len(set)-1):
-            strength += Strength(subset,memo)
-        strength / (len(set)-1)
+            strength += Strength(subset)
+        strength /= (len(set)-1)
         memo[set] = strength
     return memo[set]
 
