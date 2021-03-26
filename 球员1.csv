@@ -11,14 +11,14 @@
 10,Utah Jazz,Antoine Carr,69
 11,Utah Jazz,Adam Keefe,69
 12,Utah Jazz,Greg Foster,69
-13,Los Angeles Lakers,Jerry West,95
-14,Los Angeles Lakers,Wilt Chamberlain,93
-15,Los Angeles Lakers,Gail Goodrich,84
-16,Los Angeles Lakers,Elgin Baylor,76
-17,Los Angeles Lakers,Fred Hetzel,76
-18,Los Angeles Lakers,Erickson,74
-19,Los Angeles Lakers,Rick Roberson,69
-20,Los Angeles Lakers,Willie McCarter,68
+13,Lakers 1971,Jerry West,95
+14,Lakers 1971,Wilt Chamberlain,93
+15,Lakers 1971,Gail Goodrich,84
+16,Lakers 1971,Elgin Baylor,76
+17,Lakers 1971,Fred Hetzel,76
+18,Lakers 1971,Erickson,74
+19,Lakers 1971,Rick Roberson,69
+20,Lakers 1971,Willie McCarter,68
 21,Spurs,Tim Duncan,98
 22,Spurs,Tony Parker,90
 23,Spurs,Manu Ginobili,87
@@ -39,7 +39,7 @@
 38,Warriors,Damian Jone,72
 39,Heat,LeBron James,98
 40,Heat,Dwyane Wade,92
-41,Heat,Chris Bosh,96
+41,Heat,Chris Bosh,86
 42,Heat,Ray Allen,77
 43,Heat,Shane Battier,77
 44,Heat,Mike Miller,76
@@ -47,7 +47,7 @@
 46,Heat,Rashard Lewis,74
 47,Heat,Udonis Haslem,73
 48,Bulls,Michael Jordan,99
-49,Bulls,Scottie Pippen,85
+49,Bulls,Scottie Pippen,95
 50,Bulls,Dennis Rodman,86
 51,Bulls,Toni Kukoc,80
 52,Bulls,Ron Harper,79
@@ -58,19 +58,19 @@
 57,Bulls,Dickey Simpkins,69
 58,Bulls,Bill Wennington,67
 59,Bulls,James Edwards,63
-60,Los Angeles Lakers,Kobe Bryant,97
-61,Los Angeles Lakers,Shaquille O’Neal,97
-62,Los Angeles Lakers,Horace Grant,80
-63,Los Angeles Lakers,Rick Fox,79
-64,Los Angeles Lakers,Derek Fisher,77
-65,Los Angeles Lakers,Robert Horry,76
-66,Los Angeles Lakers,Isaiah Rider,75
-67,Los Angeles Lakers,Ron Harper,73
-68,Los Angeles Lakers,Mark Madsen,73
-69,Los Angeles Lakers,Tyronn Lue,72
-70,Los Angeles Lakers,Brian Shaw,72
-71,Los Angeles Lakers,Devean George,71
-72,Los Angeles Lakers,Greg Foster,69
+60,Lakers 2001,Kobe Bryant,97
+61,Lakers 2001,Shaquille O’Neal,97
+62,Lakers 2001,Horace Grant,80
+63,Lakers 2001,Rick Fox,79
+64,Lakers 2001,Derek Fisher,77
+65,Lakers 2001,Robert Horry,76
+66,Lakers 2001,Isaiah Rider,75
+67,Lakers 2001,Ron Harper,73
+68,Lakers 2001,Mark Madsen,73
+69,Lakers 2001,Tyronn Lue,72
+70,Lakers 2001,Brian Shaw,72
+71,Lakers 2001,Devean George,71
+72,Lakers 2001,Greg Foster,69
 73,Celtics,Kevin Garnett,93
 74,Celtics,Paul Pierce,92
 75,Celtics,Ray Allen,88
@@ -124,17 +124,17 @@
 123,Nuggest,Nenê,77
 124,Nuggest,Eduardo Najera,75
 125,Nuggest,Steven Hunter,73
-126,Los Angeles Lakers,Magic Johnson,98
-127,Los Angeles Lakers,Kareem Abdul-Jabbar,94
-128,Los Angeles Lakers,James Worthy,86
-129,Los Angeles Lakers,Michael Cooper,86
-130,Los Angeles Lakers,Byron Scott,84
-131,Los Angeles Lakers,A.C. Green,76
-132,Los Angeles Lakers,Wes Matthews,75
-133,Los Angeles Lakers,Kurt Rambis,73
-134,Los Angeles Lakers,Billy Thompson,72
-135,Los Angeles Lakers,Mychal Thompson,70
-136,Los Angeles Lakers,Frank Brickowski,68
+126,Lakers 1987,Magic Johnson,98
+127,Lakers 1987,Kareem Abdul-Jabbar,94
+128,Lakers 1987,James Worthy,86
+129,Lakers 1987,Michael Cooper,86
+130,Lakers 1987,Byron Scott,84
+131,Lakers 1987,A.C. Green,76
+132,Lakers 1987,Wes Matthews,75
+133,Lakers 1987,Kurt Rambis,73
+134,Lakers 1987,Billy Thompson,72
+135,Lakers 1987,Mychal Thompson,70
+136,Lakers 1987,Frank Brickowski,68
 137,Suns,Steve Nash,95
 138,Suns,Amar’e Stoudemire,89
 139,Suns,Shawn Marion,86
