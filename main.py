@@ -1,13 +1,18 @@
+# This is a sample Python script.
+
+# Press ⌃R to execute it or replace it with your code.
+# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 import itertools
 import csv
-List_ofPlayerandGroup=[['Karl Malone',1],['Tony Stocketon',1],['Jeff Hornacek',1],['Wilt Chamberlain',2],['Jerry West',2],['Elgin Baylor',2],['Tim Duncan',3],['Tony Parker',3],['Manu Ginobili',3],
+
+List_ofPlayerandGroup=[['Karl Malone',1],['Jhon Stocketon',1],['Jeff Hornacek',1],['Wilt Chamberlain',2],['Jerry West',2],['Gail Goodrich',2],['Tim Duncan',3],['Tony Parker',3],['Manu Ginobili',3],
                        ['Steph Curry',4],['Klay Thompson',4],['Kevin Durant',4],['LeBron James',5],['Dwyane Wade',5],['Chris Bosh',5],['Machel Jordan',6],['Scottie Pippen',6],['Dennis Rodman',6],
                        ["Shaquille O'Neal",7],['Kobe Bryant',7],['PAUL PIERCE',8],['KEVIN GARNETT',8],['Ray Allen',8],['SHAWN KEMP',9],['GARY PAYTON',9],['LARRY BIRD',10],['KEVIN McHALE ',10],
                        ['Tracy McGrady',11],['Ming Yao',11],['Magic Johnson',12],['Kareem Abdul-Jabbar',12],['James Worthy',12],['Steve Nash',13],["Amar'e Stoudemire",13],['Shawn Marion',13],
-                       ['Carmelon Anthony',14],['Allen Iverson',14],['Chris Andersen',14]]
+                       ['Carmelon Anthony',14],['Allen Iverson',14],['Marcus Camby',14]]
 
-Player_ability=[96,93,87,95,93,92,97,90,87,96,92,98,94,86,98,95,87,97,97,97,92,93,88,90,94,97,91,92,90,98,95,87,95,89,88,95,93,85]
+Player_ability=[96,93,81,95,93,84,98,90,87,96,92,97,98,92,86,99,95,86,97,97,92,93,88,89,94,97,91,91,88,98,94,86,95,89,86,92,89,87]
 
 
 ###
@@ -45,14 +50,16 @@ def get_playername(li):
 
 def powerset(xs):
     q=[]
-    for i in range(1,6):
+    for i in range(1,4):
         q.extend(itertools.combinations(xs,i))
     return q
 
-LL=["1","2",'3','4',"5",'6']
+#LL=["1","2",'3','4',"5",'6']
 
-L=['Karl Malone','Tony Stocketon','Jeff Hornacek','Wilt Chamberlain','Jerry West','Elgin Baylor','Tim Duncan']
+#L=['Karl Malone','Tony Stocketon','Jeff Hornacek','Wilt Chamberlain','Jerry West','Elgin Baylor','Tim Duncan']
+
 Final_Li=get_playername(List_ofPlayerandGroup)
+
 kk=powerset(Final_Li)
 
 
@@ -69,12 +76,13 @@ def get_details(key,s):
 
 PL= get_details(key1,Player_ability)
 
+#return Player raitng
 def rating(str):
     for i in PL:
         if i == str:
-            ra=PL[i]
+            rate=PL[i]
             #print (ra)
-    return ra
+    return rate
 
 #return player GRoup
 def Get_GPnum(Str):
@@ -85,6 +93,8 @@ def Get_GPnum(Str):
 
 #Calculate MeMo by own predict
 def Get_MeMo(set):
+    ds=0
+    N1=N2=N3=0
     Memo={}
     for i in set:
         if len(i)== 1:
@@ -101,29 +111,20 @@ def Get_MeMo(set):
             N2 = Get_GPnum(i[1])
             N3 = Get_GPnum(i[2])
             if N1 == N2 == N3:
-                ds=(rating(i[0])+rating(i[1])+rating(i[2])+rating(i[2])+rating(i[0])+rating(i[1])+5)/3
+                ds=(rating(i[0])+rating(i[1])+rating(i[2])+rating(i[2])+rating(i[0])+rating(i[1])+5)/2
                 Memo[i]=ds
     return Memo
 
 
-memo=Get_MeMo(kk)
-#print(memo)
-#print(kk)
-def Strength(set):
-    if not (set in memo):
-        strength = 0;
-        for subset in itertools.combinations(set, len(set)-1):
-            strength += Strength(subset)
-        strength /= (len(set)-1)
-        memo[set] = strength
-    return memo[set]
 
-memo=Get_MeMo(kk)
-print(Strength(('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion','Steph Curry', 'Klay Thompson'), memo))
+#print(Strength(('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion','Steph Curry', 'Klay Thompson')))
 
+x=('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion')
+#print(Strength(x))
 
 #[队伍，elo评分]
 team_Elo=[['Utah Jazz',1766],['Lakers 1971',1753],['Spurs', 1764],['Warriors',1865],['Heat',1774],['Bulls',1853],['Lakers 2001',1779],['Celtics', 1751],['Sonics',1731],['85-86 Celtics',1816],['Rocket',1697],['Lakers 1987',1758],['Suns',1743],['Nuggest',1691]]
+
 def Get_teamElo(Str):
     Elo=0
     for i in team_Elo:
@@ -131,12 +132,13 @@ def Get_teamElo(Str):
             Elo=i[1]
     return Elo
 
+
+#CSV file reading
 csv_file=csv.reader(open('/Users/zbl/Desktop/球员1.csv','r'))
-print(csv_file)
+#print(csv_file)
 content=[]
 for i in csv_file:
     content.append(i)
-print(content)
 
 #average of 144 players
 content.remove(['\ufeffNo.', 'Team name', 'Player name', 'rating'])
@@ -147,7 +149,7 @@ all_p=all_p/len(content)
 #print(all_p)
 
 #ratio value for elo
-print(1767.6/79.2)
+ratio=(1767.6/79.2)
 
 #player rating
 def power(Str):
@@ -182,10 +184,6 @@ def Team_infor(String,Str1,Str2,Str3):
     k=t-(s1+s2+s3)/f
     return k
 
-
-relation_value=(Team_infor('Warriors','Kevin Durant','Stephen Curry','Klay Thompson'))
-print(relation_value)
-
 #each team k
 cal_K_team=[[1,Team_infor('Utah Jazz','Karl Malone','John Stockton','Jeff Hornacek')],[2,Team_infor('Lakers 1971','Jerry West','Wilt Chamberlain','Gail Goodrich')],[3,Team_infor('Spurs','Tim Duncan','Tony Parker','Manu Ginobili')],[4,Team_infor('Warriors','Kevin Durant','Stephen Curry','Klay Thompson')],[5,Team_infor('Heat','LeBron James','Dwyane Wade','Chris Bosh')],[6,Team_infor('Bulls','Michael Jordan','Scottie Pippen','Dennis Rodman')],[7,Team_infor('Lakers 2001','Shaquille O’Neal','Kobe Bryant','null')],
             [8,Team_infor('Celtics','Kevin Garnett','Paul Pierce','Ray Allen')],[9,Team_infor('Sonics','Gary Payton','Shawn Kemp','null')],[10,Team_infor('85-86 Celtics','Larry Bird','Kevin McHale','null')],[11,Team_infor('Rocket','Tracy McGrady','Yao Ming','null')],[12,Team_infor('Lakers 1987','Magic Johnson','Kareem Abdul-Jabbar','James Worthy')],[13,Team_infor('Suns','Steve Nash','Amar’e Stoudemire','Shawn Marion')],[14,Team_infor('Nuggest','Carmelo Anthony','Allen Iverson','Marcus Camby')],]
@@ -194,29 +192,143 @@ cal_K_team=[[1,Team_infor('Utah Jazz','Karl Malone','John Stockton','Jeff Hornac
 
 
 #calculate the memo by acutal data
+
+
+#memo=Data_memo2(kk)
+#print(memo)
+#print(kk)
+
+
+
+def whole_rating(str):#from content get information
+    rat=0
+    for i in content:
+        if i[2]==str:
+            rat=i[3]
+    return rat
+
+
+
+#print(Get_WholeGP('Karl Malone'))
+
+
 def Data_memo(set):
     Memo2 = {}
     for i in set:
         if len(i) == 1:
-            Ds = rating(i[0])
+            Ds = whole_rating(i[0])
             Memo2[i] = Ds
         if len(i) == 2:
-            D1 = Get_GPnum(i[0])
-            D2 = Get_GPnum(i[1])
+            D1 = Get_WholeGP(i[0])
+            D2 = Get_WholeGP(i[1])
             if D1 == D2:
-                K=cal_K_team[int(D1)-1][1]
-                Ds = (rating(i[0]) + rating(i[1]) + K)
+                K=Team_infor(D1,i[0],i[1],'null')
+                Ds = (int(whole_rating(i[0])) + int(whole_rating(i[1])) + K)
                 Memo2[i] = Ds
         if len(i) == 3:
-            D1 = Get_GPnum(i[0])
-            D2 = Get_GPnum(i[1])
-            D3 = Get_GPnum(i[2])
+            D1 = Get_WholeGP(i[0])
+            D2 = Get_WholeGP(i[1])
+            D3 = Get_WholeGP(i[2])
             if D1 == D2 == D3:
-                K = cal_K_team[int(D1) - 1][1]
-                Ds = (rating(i[0]) + rating(i[1]) + rating(i[2]) + rating(i[2]) + rating(i[0]) + rating(i[1]) + K) / 2
+                K = Team_infor(D1,i[0],i[1],i[2])
+                Ds = (int(whole_rating(i[0])) + int(whole_rating(i[0])) + int(whole_rating(i[1])) + int(whole_rating(i[1])) + int(whole_rating(i[1])) + int(whole_rating(i[2]))+int(whole_rating(i[2])) + K) / 2
                 Memo2[i] = Ds
     return Memo2
 
 
-print(Data_memo(kk))
 
+
+def Get_WholeGP(Str):#from content get information
+    for i in content:
+        if Str == i[2]:
+            team=i[1]
+    return team
+
+#print(Get_WholeGP('Karl Malone'))
+
+
+
+def Strength(set):
+    strength = 0;
+    if not (set in memo):
+        for subset in itertools.combinations(set, len(set)-1):
+            strength += int(Strength(subset))
+        strength /= (len(set)-1)
+        memo[set] = strength
+    return memo[set]
+
+def teamset(str):
+    se=[]
+    for i in content:
+        if str==i[1]:
+            se.append(i[2])
+    set=tuple(se)
+    return set
+
+#print(teamset('Utah Jazz'))
+#print(Strength(('Karl Malone', 'John Stockton', 'Jeff Hornacek')))
+
+
+
+
+
+#print(Strength(("Amar'e Stoudemire", 'Shawn Marion', 'Carmelon Anthony', 'Allen Iverson', 'Marcus Camby', )))
+#print(Strength(("Amar'e Stoudemire", 'Shawn Marion')))
+#print(Strength(('Carmelon Anthony', 'Allen Iverson', 'Marcus Camby')))
+
+
+#print(content)
+LLL=[]
+for i in content:
+    LLL.append(i[2])
+#print(LLL)
+
+powe_set=powerset(LLL)
+
+memo=Data_memo(powe_set)
+#print(Strength(teamset('Utah Jazz')))###calculate team strength
+#print(Strength(('Karl Malone', 'John Stockton', 'Jeff Hornacek')))
+
+
+
+def get_player_num(str):
+    num=0
+    for i in content:
+        if i[1] == str:
+            num+=1
+    return num
+
+#print(get_player_num('Utah Jazz'))
+
+def Strength_easy(Str):
+    ave_rat=0
+    for i in content:
+        if i[1] == Str:
+            ave_rat+=int(i[3])
+    ave_rat=ave_rat/get_player_num(Str)
+    return ave_rat
+
+
+#print(Strength_easy('Utah Jazz'))
+
+
+def evaluate_our_method():
+    true_values=[];
+    calculated_values=[];
+    simp_values=[]
+
+    for i in team_Elo:
+        true_values.append(i[1]/23.1)
+        calculated_values.append(Strength(teamset(i[0]))/get_player_num(i[0]))
+        simp_values.append(Strength_easy(i[0]))
+
+    r=0;
+    r2=0
+
+    for i in range(len(team_Elo)):
+        r+=(int(true_values[i]) - int(calculated_values[i]))**2
+        r2+=(int(true_values[i])-int(simp_values[i]))**2
+    print(r)
+    print(r2)
+
+evaluate_our_method()
