@@ -1,4 +1,6 @@
 import tkinter
+import PIL
+
 from PIL import Image, ImageTk
 import csv
 
