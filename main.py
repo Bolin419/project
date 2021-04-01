@@ -252,6 +252,19 @@ def Data_memo(set):
         if len(i) == 1:
             Ds = whole_rating(i[0])
             Memo2[i] = Ds
+        if len(i) == 2:
+            G1=Get_WholeGP(i[0])
+            G2=Get_WholeGP(i[1])
+            if G1==G2:
+                rate=Team_infor(G1,i[0],i[1],'null')
+                Memo2[i]=rate
+        if len(i) == 3:
+            G1 = Get_WholeGP(i[0])
+            G2 = Get_WholeGP(i[1])
+            G3 = Get_WholeGP(i[2])
+            if G1 == G2 == G3:
+                Ds = Team_infor(G1,i[0],i[1],i[2])
+                Memo2[i] = Ds
     return Memo2
 
 
