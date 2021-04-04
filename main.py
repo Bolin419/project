@@ -136,7 +136,7 @@ def Get_MeMo(set):
     return Memo
 
 
-# print(Strength(('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion','Steph Curry', 'Klay Thompson')))
+
 
 x = ('Steve Nash', "Amar'e Stoudemire", 'Shawn Marion')
 # print(Strength(x))
@@ -145,6 +145,19 @@ team_Elo = [['Utah Jazz', 1766], ['Lakers 1971', 1753], ['Spurs', 1764], ['Warri
             ['Bulls', 1853], ['Lakers 2001', 1779], ['Celtics', 1751], ['Sonics', 1731], ['85-86 Celtics', 1816],
             ['Rocket', 1697], ['Lakers 1987', 1758], ['Suns', 1743], ['Nuggest', 1691]]
 
+#the data from 2krating
+Overall = [['Utah Jazz', 79], ['Lakers 1971', 82], ['Spurs', 83], ['Warriors', 85], ['Heat', 82],
+            ['Bulls', 82], ['Lakers 2001', 82], ['Celtics', 83], ['Sonics', 80], ['85-86 Celtics', 82],
+            ['Rocket', 80], ['Lakers 1987', 84], ['Suns', 80], ['Nuggest', 81]]
+
+def Get_webrat(Str): ###rating from 2krating
+    Elo = 0
+    for i in Overall:
+        if i[0] == Str:
+            Elo = i[1]
+    return Elo
+
+#print(Get_webrat('Utah Jazz'))
 
 def Get_teamElo(Str):
     Elo = 0
@@ -154,7 +167,7 @@ def Get_teamElo(Str):
     return Elo
 
 
-csv_file = csv.reader(open("C:/Users/Zenovarse/Documents/GitHub/project/球员1.csv", 'r', encoding='utf8'))
+csv_file = csv.reader(open('/Users/zbl/Desktop/球员1.csv', 'r', encoding='utf8'))
 
 # print(csv_file)
 content = []
@@ -187,6 +200,7 @@ for i in team_Elo:
 team_elo_mean/=len(team_Elo)
 
 conversion_factor = team_elo_mean/79.188
+
 def Team_infor(String, Str1, Str2, Str3):
     count = 0
     team_sum = 0
@@ -206,6 +220,9 @@ def Team_infor(String, Str1, Str2, Str3):
             else:
                 s3 = int(power(Str3))
     t = (int(Get_teamElo(String)) / conversion_factor) * count - (team_sum - s1 - s2 - s3)
+    k = t - s1 - s2 - s3
+    k /= f
+    t = k + s1 + s2 + s3
     t = t / f
     return t
 
@@ -226,8 +243,8 @@ cal_K_team = [[1, Team_infor('Utah Jazz', 'Karl Malone', 'John Stockton', 'Jeff 
               [13, Team_infor('Suns', 'Steve Nash', 'Amar’e Stoudemire', 'Shawn Marion')],
               [14, Team_infor('Nuggest', 'Carmelo Anthony', 'Allen Iverson', 'Marcus Camby')], ]
 
+#print(cal_K_team)
 
-# calculate the memo by acutal data
 
 
 # memo=Data_memo2(kk)
@@ -275,7 +292,7 @@ def Get_WholeGP(Str):  # from content get information
     return team
 
 
-# print(Get_WholeGP('Karl Malone'))
+#print(Get_WholeGP('Karl Malone'))
 
 
 
@@ -289,7 +306,7 @@ def teamset(str):
     return set
 
 
-print(teamset('Spurs'))
+#print(teamset('Spurs'))
 # print(Strength(('Karl Malone', 'John Stockton', 'Jeff Hornacek')))
 
 
@@ -307,6 +324,7 @@ for i in content:
 powe_set = powerset(LLL)
 
 memo = Data_memo(powe_set)
+#print(memo)
 
 def Strength(set):
     strength = 0;
@@ -318,18 +336,21 @@ def Strength(set):
     return memo[set]
 
 
-print(Strength(('Tim Duncan', 'Tony Parker', 'Manu Ginobili', 'Bruce Bowen', 'Robert Horry', 'Brent Barry', 'Nazr Mohammed', 'Beno Udrih')))
-print((
-whole_rating('Tim Duncan')+
-whole_rating('Tony Parker')+
-whole_rating('Manu Ginobili')+
-whole_rating('Bruce Bowen')+
-whole_rating('Robert Horry')+
-whole_rating('Brent Barry')+
-whole_rating('Nazr Mohammed')+
-whole_rating('Beno Udrih'))/8)
-# printint((Strength(teamset('Utah Jazz')))###calculate team strength
-# print(Strength(('Karl Malone', 'John Stockton', 'Jeff Hornacek')))
+
+#print((
+#whole_rating('Tim Duncan'),
+#whole_rating('Tony Parker'),
+#whole_rating('Manu Ginobili'),
+#whole_rating('Bruce Bowen'),
+#whole_rating('Robert Horry'),
+#whole_rating('Brent Barry'),
+#whole_rating('Nazr Mohammed'),
+#whole_rating('Beno Udrih')))
+
+
+#print(teamset('Nuggest'))
+#print(Strength(('Shawn Marion','Carmelon Anthony','Allen Iverson','Marcus Camby')))
+#print(Strength(('Carmelo Anthony', 'Allen Iverson', 'Marcus Camby','Tim Duncan','Tony Parker')))
 
 
 def get_player_num(str):
@@ -351,18 +372,20 @@ def Strength_easy(Str):
     return ave_rat
 
 
-# print(Strength_easy('Utah Jazz'))
+
 
 
 def evaluate_our_method():
     true_values = [];
     calculated_values = [];
     simp_values = []
+    krating=[]
 
     for i in team_Elo:
         true_values.append(i[1] / conversion_factor)
         calculated_values.append(Strength(teamset(i[0])))
         simp_values.append(Strength_easy(i[0]))
+        krating.append(Get_webrat(i[0]))
 
     print(true_values)
     print(calculated_values)
@@ -370,12 +393,15 @@ def evaluate_our_method():
 
     r = 0;
     r2 = 0
+    r3 = 0
 
     for i in range(len(team_Elo)):
         r += (int(true_values[i]) - int(calculated_values[i])) ** 2
         r2 += (int(true_values[i]) - int(simp_values[i])) ** 2
+        r3 += (int(true_values[i])-int(krating[i]))**2
     print(r)
     print(r2)
+    print(r3)
 
 
 evaluate_our_method()
