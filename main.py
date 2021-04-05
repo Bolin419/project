@@ -167,7 +167,7 @@ def Get_teamElo(Str):
     return Elo
 
 
-csv_file = csv.reader(open('/Users/zbl/Desktop/球员1.csv', 'r', encoding='utf8'))
+csv_file = csv.reader(open('C:/Users/Zenovarse/Documents/GitHub/project/球员1.csv', 'r', encoding='utf8'))
 
 # print(csv_file)
 content = []
