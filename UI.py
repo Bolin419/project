@@ -142,49 +142,49 @@ button20.place(x=610,y=510)
 
 
 
-Label1=tkinter.Label(text="YAO MIng"+'(Rocket)')
+Label1=tkinter.Label(text="Yao ming"+'(Rocket)')
 Label1.place(x=250,y=145)
-Label2=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label2=tkinter.Label(text="Player name"+'(team)')
 Label2.place(x=370,y=145)
-Label3=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label3=tkinter.Label(text="Player name"+'(team)')
 Label3.place(x=490,y=145)
-Label4=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label4=tkinter.Label(text="Player name"+'(team)')
 Label4.place(x=610,y=145)
 
-Label5=tkinter.Label(text="YAO MIng"+'(Rocket)')
+Label5=tkinter.Label(text="Player name"+'(Rocket)')
 Label5.place(x=250,y=260)
-Label6=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label6=tkinter.Label(text="Player name"+'(team)')
 Label6.place(x=370,y=260)
-Label7=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label7=tkinter.Label(text="Player name"+'(team)')
 Label7.place(x=490,y=260)
-Label8=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label8=tkinter.Label(text="Player name"+'(team)')
 Label8.place(x=610,y=260)
 
-Label9=tkinter.Label(text="YAO MIng"+'(Rocket)')
+Label9=tkinter.Label(text="Player name"+'(Rocket)')
 Label9.place(x=250,y=375)
-Label10=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label10=tkinter.Label(text="Player name"+'(team)')
 Label10.place(x=370,y=375)
-Label11=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label11=tkinter.Label(text="Player name"+'(team)')
 Label11.place(x=490,y=375)
-Label12=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label12=tkinter.Label(text="Player name"+'(team)')
 Label12.place(x=610,y=375)
 
-Label13=tkinter.Label(text="YAO MIng"+'(Rocket)')
+Label13=tkinter.Label(text="Player name"+'(Rocket)')
 Label13.place(x=250,y=490)
-Label14=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label14=tkinter.Label(text="Player name"+'(team)')
 Label14.place(x=370,y=490)
-Label15=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label15=tkinter.Label(text="Player name"+'(team)')
 Label15.place(x=490,y=490)
-Label16=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label16=tkinter.Label(text="Player name"+'(team)')
 Label16.place(x=610,y=490)
 
-Label17=tkinter.Label(text="YAO MIng"+'(Rocket)')
+Label17=tkinter.Label(text="Player name"+'(team)')
 Label17.place(x=250,y=605)
-Label18=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label18=tkinter.Label(text="Player name"+'(team)')
 Label18.place(x=370,y=605)
-Label19=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label19=tkinter.Label(text="Player name"+'(team)')
 Label19.place(x=490,y=605)
-Label20=tkinter.Label(text="Manu Ginobili"+'(Spurs)')
+Label20=tkinter.Label(text="Player name"+'(team)')
 Label20.place(x=610,y=605)
 
 
@@ -210,6 +210,23 @@ img4.place(x=40, y=400)
 
 img5 = tkinter.Label(text='player5', font=('黑体', 15),fg='Goldenrod')
 img5.place(x=40, y=450)
+
+
+
+img6 = tkinter.Label(text='player6', font=('黑体', 15),fg='Goldenrod')
+img6.place(x=900, y=250)
+
+img7 = tkinter.Label(text='player7', font=('黑体', 15),fg='Goldenrod')
+img7.place(x=900, y=300)
+
+img8 = tkinter.Label(text='player8', font=('黑体', 15),fg='Goldenrod')
+img8.place(x=900, y=350)
+
+img9 = tkinter.Label(text='player9', font=('黑体', 15),fg='Goldenrod')
+img9.place(x=900, y=400)
+
+img10 = tkinter.Label(text='player10', font=('黑体', 15),fg='Goldenrod')
+img10.place(x=900, y=450)
 
 
 finish_button=tkinter.Button(top,text='exit',command=top.quit)
