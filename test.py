@@ -34,6 +34,9 @@ d =[79, 82, 83, 85, 82, 82, 82, 83, 80, 82, 80, 84, 80, 81]
 y2=[4,119,182]
 x4=['team chemistry calculate','average rating','2krating web']
 
+y33=[178,145]
+xnew=['team chemistry','average']
+
 mu=np.mean(d)
 la=np.mean(re1)
 d /= (mu/la)
@@ -46,11 +49,12 @@ x3 = np.array(c)
 x4=np.array(x4)
 x5 = np.array(d)
 
-plt.plot(y,x1,color='red',label='true value')
-plt.plot(y,x2,color='green',label='calculate result')
-plt.plot(y,x3,color='blue',label='average result')
-plt.plot(y,x5,color='purple',label='2k rating result')
+##plt.plot(y,x1,color='red',label='true value')
+#plt.plot(y,x2,color='green',label='calculate result')
+#plt.plot(y,x3,color='blue',label='average result')
+#plt.plot(y,x5,color='purple',label='2k rating result')
 #plt.bar(x4,y2,color='blue',label='R square value')
+plt.bar(xnew,y33,color='blue',label='R square value')
 plt.legend()
 
 #plt.hist(a,bins=[1650,1700,1750,1800,1850,1900])
