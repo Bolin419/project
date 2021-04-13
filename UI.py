@@ -1,6 +1,6 @@
 import tkinter
 import PIL
-
+import random
 from PIL import Image, ImageTk
 import csv
 
@@ -15,57 +15,163 @@ def center_window(top,w, h):
 
 
 
+#set for turn and
+def decide_turn():
+    turn = 0
+    small = 1
+    big = 6
+    if random.randint(small,big)<=3:
+        turn=0# 0 means player1
+        print('player 1 choose first')
+    else:
+        turn=1 #1 means player 2
+        print('player 2 choose first')
+
 
 top = tkinter.Tk()
+
+
+csv_file = csv.reader(open('球员1.csv', 'r', encoding='utf8'))
+
+# print(csv_file)
+content = []
+for i in csv_file:
+    content.append(i)
+content.remove(['\ufeffNo.', 'Team name', 'Player name', 'rating'])
+
+def generate_list1():
+    UI_list1=[]
+    for i in content:
+        if int(i[3])>=96:
+            UI_list1.append(i)
+    return UI_list1
+
+def generate_list2():
+    UI_list2=[]
+    for i in content:
+        if 92<=int(i[3])<96:
+            UI_list2.append(i)
+    return UI_list2
+
+
+def generate_list3():
+    UI_list3=[]
+    for i in content:
+        if 88<=int(i[3])<92:
+            UI_list3.append(i)
+    return UI_list3
+
+def generate_list4():
+    UI_list4=[]
+    for i in content:
+        if 84<=int(i[3])<88:
+            UI_list4.append(i)
+    return UI_list4
+
+def generate_list5():
+    UI_list5=[]
+    for i in content:
+        if 80<=int(i[3])<84:
+            UI_list5.append(i)
+    return UI_list5
+
+
+def randPlaye1():
+    ranlist=random.sample(range(0,10),4)
+    x=generate_list1()
+    UIplayer1=[]
+    for i in ranlist:
+        UIplayer1.append(x[i])
+    return UIplayer1
+
+
+def randPlaye2():
+    ranlist=random.sample(range(0,12),4)
+    x=generate_list2()
+    UIplayer2=[]
+    for i in ranlist:
+        UIplayer2.append(x[i])
+    return UIplayer2
+
+
+def randPlaye3():
+    ranlist=random.sample(range(0,8),4)
+    x=generate_list3()
+    UIplayer3=[]
+    for i in ranlist:
+        UIplayer3.append(x[i])
+    return UIplayer3
+
+
+def randPlaye4():
+    ranlist=random.sample(range(0,12),4)
+    x=generate_list4()
+    UIplayer4=[]
+    for i in ranlist:
+        UIplayer4.append(x[i])
+    return UIplayer4
+
+
+def randPlaye5():
+    ranlist=random.sample(range(0,5),4)
+    x=generate_list5()
+    UIplayer5=[]
+    for i in ranlist:
+        UIplayer5.append(x[i])
+    return UIplayer5
 
 
 top.title('Fantasy League Team')
 center_window(top,1000,700)
 
-
-Ima1 = Image.open('/Users/zbl/Desktop/1.png')
+T1=randPlaye1()
+Ima1 = Image.open('/Users/zbl/Desktop/player photo/'+T1[0][2]+'.png')
 Ima1=Ima1.resize((120, 85),Image.ANTIALIAS)
-Ima2 = Image.open('/Users/zbl/Desktop/player photo/Manu-Ginobili-2K.png')
+Ima2 = Image.open('/Users/zbl/Desktop/player photo/'+T1[1][2]+'.png')
 Ima2=Ima2.resize((120, 85),Image.ANTIALIAS)
-Ima3 = Image.open('/Users/zbl/Desktop/player photo/Karl-Malone-2K.png')
+Ima3 = Image.open('/Users/zbl/Desktop/player photo/'+T1[2][2]+'.png')
 Ima3=Ima3.resize((120, 85),Image.ANTIALIAS)
-Ima4 = Image.open('/Users/zbl/Desktop/player photo/Tony-Parker-2K.png')
+Ima4 = Image.open('/Users/zbl/Desktop/player photo/'+T1[3][2]+'.png')
 Ima4=Ima4.resize((120, 85),Image.ANTIALIAS)
 
-Ima5 = Image.open('/Users/zbl/Desktop/player photo/Shawn-Kemp-2K.png')
+T2=randPlaye2()
+Ima5 = Image.open('/Users/zbl/Desktop/player photo/'+T2[0][2]+'.png')
 Ima5=Ima5.resize((120, 85),Image.ANTIALIAS)
-Ima6 = Image.open('/Users/zbl/Desktop/player photo/Allen-Iverson-2K.png')
+Ima6 = Image.open('/Users/zbl/Desktop/player photo/'+T2[1][2]+'.png')
 Ima6=Ima6.resize((120, 85),Image.ANTIALIAS)
-Ima7 = Image.open('/Users/zbl/Desktop/player photo/Amare-Stoudemire-2K.png')
+Ima7 = Image.open('/Users/zbl/Desktop/player photo/'+T2[2][2]+'.png')
 Ima7=Ima7.resize((120, 85),Image.ANTIALIAS)
-Ima8 = Image.open('/Users/zbl/Desktop/player photo/Paul-Pierce-2K-1.png')
+Ima8 = Image.open('/Users/zbl/Desktop/player photo/'+T2[3][2]+'.png')
 Ima8=Ima8.resize((120, 85),Image.ANTIALIAS)
 
-Ima9 = Image.open('/Users/zbl/Desktop/player photo/Steve-Nash-2K.png')
+T3=randPlaye3()
+Ima9 = Image.open('/Users/zbl/Desktop/player photo/'+T3[0][2]+'.png')
 Ima9=Ima9.resize((120, 85),Image.ANTIALIAS)
-Ima10 = Image.open('/Users/zbl/Desktop/player photo/Scottie-Pippen-2K.png')
+Ima10 = Image.open('/Users/zbl/Desktop/player photo/'+T3[1][2]+'.png')
 Ima10=Ima10.resize((120, 85),Image.ANTIALIAS)
-Ima11 = Image.open('/Users/zbl/Desktop/player photo/Shaquille-ONeal-2K.png')
+Ima11 = Image.open('/Users/zbl/Desktop/player photo/'+T3[2][2]+'.png')
 Ima11=Ima11.resize((120, 85),Image.ANTIALIAS)
-Ima12 = Image.open('/Users/zbl/Desktop/player photo/Stephen-Curry-2K.png')
+Ima12 = Image.open('/Users/zbl/Desktop/player photo/'+T3[3][2]+'.png')
 Ima12=Ima12.resize((120, 85),Image.ANTIALIAS)
 
-Ima13 = Image.open('/Users/zbl/Desktop/player photo/Kobe-Bryant-Prime-2K.png')
+T4=randPlaye4()
+Ima13 = Image.open('/Users/zbl/Desktop/player photo/'+T4[0][2]+'.png')
 Ima13=Ima13.resize((120, 85),Image.ANTIALIAS)
-Ima14 = Image.open('/Users/zbl/Desktop/player photo/Magic-Johnson-2K.png')
+Ima14 = Image.open('/Users/zbl/Desktop/player photo/'+T4[1][2]+'.png')
 Ima14=Ima14.resize((120, 85),Image.ANTIALIAS)
-Ima15 = Image.open('/Users/zbl/Desktop/player photo/Michael-Jordan-2K.png')
+Ima15 = Image.open('/Users/zbl/Desktop/player photo/'+T4[2][2]+'.png')
 Ima15=Ima15.resize((120, 85),Image.ANTIALIAS)
-Ima16 = Image.open('/Users/zbl/Desktop/player photo/LeBron-James-Miami-Heat-2K.png')
+Ima16 = Image.open('/Users/zbl/Desktop/player photo/'+T4[3][2]+'.png')
 Ima16=Ima16.resize((120, 85),Image.ANTIALIAS)
 
-Ima17 = Image.open('/Users/zbl/Desktop/player photo/Carmelo-Anthony-Denver-Nuggers-2K.png')
+T5=randPlaye5()
+Ima17 = Image.open('/Users/zbl/Desktop/player photo/'+T5[0][2]+'.png')
 Ima17=Ima17.resize((120, 85),Image.ANTIALIAS)
-Ima18 = Image.open('/Users/zbl/Desktop/player photo/Larry-Bird-2K.png')
+Ima18 = Image.open('/Users/zbl/Desktop/player photo/'+T5[1][2]+'.png')
 Ima18=Ima18.resize((120, 85),Image.ANTIALIAS)
-Ima19 = Image.open('/Users/zbl/Desktop/player photo/Klay-Thompson-2K.png')
+Ima19 = Image.open('/Users/zbl/Desktop/player photo/'+T5[2][2]+'.png')
 Ima19=Ima19.resize((120, 85),Image.ANTIALIAS)
-Ima20 = Image.open('/Users/zbl/Desktop/player photo/Kareem-Abdul-Jabbar-LA-Lakers-2K.png')
+Ima20 = Image.open('/Users/zbl/Desktop/player photo/'+T5[3][2]+'.png')
 Ima20=Ima20.resize((120, 85),Image.ANTIALIAS)
 
 p1 = ImageTk.PhotoImage(Ima1)
@@ -142,49 +248,49 @@ button20.place(x=610,y=510)
 
 
 
-Label1=tkinter.Label(text="Yao ming"+'(Rocket)')
+Label1=tkinter.Label(text=T1[0][2]+'('+T1[0][1]+')')
 Label1.place(x=250,y=145)
-Label2=tkinter.Label(text="Player name"+'(team)')
+Label2=tkinter.Label(text=T1[1][2]+'('+T1[1][1]+')')
 Label2.place(x=370,y=145)
-Label3=tkinter.Label(text="Player name"+'(team)')
+Label3=tkinter.Label(text=T1[2][2]+'('+T1[2][1]+')')
 Label3.place(x=490,y=145)
-Label4=tkinter.Label(text="Player name"+'(team)')
+Label4=tkinter.Label(text=T1[3][2]+'('+T1[3][1]+')')
 Label4.place(x=610,y=145)
 
-Label5=tkinter.Label(text="Player name"+'(Rocket)')
+Label5=tkinter.Label(text=T2[0][2]+'('+T2[0][1]+')')
 Label5.place(x=250,y=260)
-Label6=tkinter.Label(text="Player name"+'(team)')
+Label6=tkinter.Label(text=T2[1][2]+'('+T2[1][1]+')')
 Label6.place(x=370,y=260)
-Label7=tkinter.Label(text="Player name"+'(team)')
+Label7=tkinter.Label(text=T2[2][2]+'('+T2[2][1]+')')
 Label7.place(x=490,y=260)
-Label8=tkinter.Label(text="Player name"+'(team)')
+Label8=tkinter.Label(text=T2[3][2]+'('+T2[3][1]+')')
 Label8.place(x=610,y=260)
 
-Label9=tkinter.Label(text="Player name"+'(Rocket)')
+Label9=tkinter.Label(text=T3[0][2]+'('+T3[0][1]+')')
 Label9.place(x=250,y=375)
-Label10=tkinter.Label(text="Player name"+'(team)')
+Label10=tkinter.Label(text=T3[1][2]+'('+T3[1][1]+')')
 Label10.place(x=370,y=375)
-Label11=tkinter.Label(text="Player name"+'(team)')
+Label11=tkinter.Label(text=T3[2][2]+'('+T3[2][1]+')')
 Label11.place(x=490,y=375)
-Label12=tkinter.Label(text="Player name"+'(team)')
+Label12=tkinter.Label(text=T3[3][2]+'('+T3[3][1]+')')
 Label12.place(x=610,y=375)
 
-Label13=tkinter.Label(text="Player name"+'(Rocket)')
+Label13=tkinter.Label(text=T4[0][2]+'('+T4[0][1]+')')
 Label13.place(x=250,y=490)
-Label14=tkinter.Label(text="Player name"+'(team)')
+Label14=tkinter.Label(text=T4[1][2]+'('+T4[1][1]+')')
 Label14.place(x=370,y=490)
-Label15=tkinter.Label(text="Player name"+'(team)')
+Label15=tkinter.Label(text=T4[2][2]+'('+T4[2][1]+')')
 Label15.place(x=490,y=490)
-Label16=tkinter.Label(text="Player name"+'(team)')
+Label16=tkinter.Label(text=T4[3][2]+'('+T4[3][1]+')')
 Label16.place(x=610,y=490)
 
-Label17=tkinter.Label(text="Player name"+'(team)')
+Label17=tkinter.Label(text=T5[0][2]+'('+T5[0][1]+')')
 Label17.place(x=250,y=605)
-Label18=tkinter.Label(text="Player name"+'(team)')
+Label18=tkinter.Label(text=T5[1][2]+'('+T5[1][1]+')')
 Label18.place(x=370,y=605)
-Label19=tkinter.Label(text="Player name"+'(team)')
+Label19=tkinter.Label(text=T5[2][2]+'('+T5[2][1]+')')
 Label19.place(x=490,y=605)
-Label20=tkinter.Label(text="Player name"+'(team)')
+Label20=tkinter.Label(text=T5[3][2]+'('+T5[3][1]+')')
 Label20.place(x=610,y=605)
 
 
