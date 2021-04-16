@@ -23,9 +23,11 @@ def decide_turn():
     if random.randint(small,big)<=3:
         turn=0# 0 means player1
         print('player 1 choose first')
+        return turn
     else:
         turn=1 #1 means player 2
         print('player 2 choose first')
+        return turn
 
 
 top = tkinter.Tk()
@@ -199,8 +201,31 @@ p18 = ImageTk.PhotoImage(Ima18)
 p19 = ImageTk.PhotoImage(Ima19)
 p20 = ImageTk.PhotoImage(Ima20)
 
+#14589 236710
+#
+turn = decide_turn()
+print(turn)
+def click1():
+    global turn
+    if turn ==1:
+        lab=tkinter.Label(text=T1[0][2]+'('+T1[0][1]+')')
+        lab.place(x=40, y=250)
+    #if turn ==2:
 
-button1=tkinter.Button(image=p1)
+    #if turn ==3:
+
+
+
+
+def okfunction():
+    global turn
+    turn = turn + 1
+
+
+buttonok=tkinter.Button(text='ok!',command=okfunction)#choose to change turn
+buttonok.place(x=500,y=650)
+
+button1=tkinter.Button(image=p1,command=click1)
 button1.place(x=250,y=50)
 button2=tkinter.Button(image=p2)
 button2.place(x=370,y=50)
@@ -292,8 +317,6 @@ Label19=tkinter.Label(text=T5[2][2]+'('+T5[2][1]+')')
 Label19.place(x=490,y=605)
 Label20=tkinter.Label(text=T5[3][2]+'('+T5[3][1]+')')
 Label20.place(x=610,y=605)
-
-
 
 
 
