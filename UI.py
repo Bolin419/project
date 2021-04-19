@@ -17,17 +17,19 @@ def center_window(top,w, h):
 
 #set for turn and
 def decide_turn():
-    turn = 0
+
     small = 1
     big = 6
     if random.randint(small,big)<=3:
-        turn=0# 0 means player1
+        turn=0
+        order=0# 0 means player1
         print('player 1 choose first')
-        return turn
+        return order,turn
     else:
-        turn=1 #1 means player 2
+        turn=0
+        order=1 # means player 2
         print('player 2 choose first')
-        return turn
+        return order,turn
 
 
 top = tkinter.Tk()
@@ -203,18 +205,77 @@ p20 = ImageTk.PhotoImage(Ima20)
 
 #14589 236710
 #
-turn = decide_turn()
-print(turn)
-def click1():
+turn = int(decide_turn()[1])
+#print(turn)
+order = int(decide_turn()[0])
+print(order)
+def click1(x,y):
     global turn
-    if turn ==1:
-        lab=tkinter.Label(text=T1[0][2]+'('+T1[0][1]+')')
-        lab.place(x=40, y=250)
-    #if turn ==2:
+    global order
 
-    #if turn ==3:
+    if order==0:
+        if turn ==0:
+            lab=tkinter.Label(text=y[x][2]+'('+y[x][1]+')')
+            lab.place(x=40, y=250)
+        if turn ==1:
+            lab2 = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab2.place(x=900, y=250)
+        if turn ==2:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=300)
+        if turn ==3:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=300)
+        if turn ==4:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=350)
+        if turn ==5:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=350)
+        if turn ==6:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=400)
+        if turn ==7:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=400)
+        if turn ==8:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=450)
+        if turn ==9:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=450)
 
-
+    if order==1:
+        if turn ==0:
+            lab=tkinter.Label(text=y[x][2]+'('+y[x][1]+')')
+            lab.place(x=900, y=250)
+        if turn ==1:
+            lab2 = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab2.place(x=40, y=250)
+        if turn ==2:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=300)
+        if turn ==3:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=300)
+        if turn ==4:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=350)
+        if turn ==5:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=350)
+        if turn ==6:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=400)
+        if turn ==7:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=400)
+        if turn ==8:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=900, y=450)
+        if turn ==9:
+            lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            lab.place(x=40, y=450)
 
 
 def okfunction():
@@ -222,53 +283,54 @@ def okfunction():
     turn = turn + 1
 
 
+
 buttonok=tkinter.Button(text='ok!',command=okfunction)#choose to change turn
 buttonok.place(x=500,y=650)
 
-button1=tkinter.Button(image=p1,command=click1)
+button1=tkinter.Button(image=p1,command=lambda:click1(0,T1))
 button1.place(x=250,y=50)
-button2=tkinter.Button(image=p2)
+button2=tkinter.Button(image=p2,command=lambda:click1(1,T1))
 button2.place(x=370,y=50)
-button3=tkinter.Button(image=p3)
+button3=tkinter.Button(image=p3,command=lambda:click1(2,T1))
 button3.place(x=490,y=50)
-button4=tkinter.Button(image=p4)
+button4=tkinter.Button(image=p4,command=lambda:click1(3,T1))
 button4.place(x=610,y=50)
 
 
-button5=tkinter.Button(image=p5)
+button5=tkinter.Button(image=p5,command=lambda:click1(0,T2))
 button5.place(x=250,y=165)
-button6=tkinter.Button(image=p6)
+button6=tkinter.Button(image=p6,command=lambda:click1(1,T2))
 button6.place(x=370,y=165)
-button7=tkinter.Button(image=p7)
+button7=tkinter.Button(image=p7,command=lambda:click1(2,T2))
 button7.place(x=490,y=165)
-button8=tkinter.Button(image=p8)
+button8=tkinter.Button(image=p8,command=lambda:click1(3,T2))
 button8.place(x=610,y=165)
 
-button9=tkinter.Button(image=p9)
+button9=tkinter.Button(image=p9,command=lambda:click1(0,T3))
 button9.place(x=250,y=280)
-button10=tkinter.Button(image=p10)
+button10=tkinter.Button(image=p10,command=lambda:click1(1,T3))
 button10.place(x=370,y=280)
-button11=tkinter.Button(image=p11)
+button11=tkinter.Button(image=p11,command=lambda:click1(2,T3))
 button11.place(x=490,y=280)
-button12=tkinter.Button(image=p12)
+button12=tkinter.Button(image=p12,command=lambda:click1(3,T3))
 button12.place(x=610,y=280)
 
-button13=tkinter.Button(image=p13)
+button13=tkinter.Button(image=p13,command=lambda:click1(0,T4))
 button13.place(x=250,y=395)
-button14=tkinter.Button(image=p14)
+button14=tkinter.Button(image=p14,command=lambda:click1(1,T4))
 button14.place(x=370,y=395)
-button15=tkinter.Button(image=p15)
+button15=tkinter.Button(image=p15,command=lambda:click1(2,T4))
 button15.place(x=490,y=395)
-button16=tkinter.Button(image=p16)
+button16=tkinter.Button(image=p16,command=lambda:click1(3,T4))
 button16.place(x=610,y=395)
 
-button17=tkinter.Button(image=p17)
+button17=tkinter.Button(image=p17,command=lambda:click1(0,T5))
 button17.place(x=250,y=510)
-button18=tkinter.Button(image=p18)
+button18=tkinter.Button(image=p18,command=lambda:click1(1,T5))
 button18.place(x=370,y=510)
-button19=tkinter.Button(image=p19)
+button19=tkinter.Button(image=p19,command=lambda:click1(2,T5))
 button19.place(x=490,y=510)
-button20=tkinter.Button(image=p20)
+button20=tkinter.Button(image=p20,command=lambda:click1(3,T5))
 button20.place(x=610,y=510)
 
 
