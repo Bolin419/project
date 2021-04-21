@@ -14,6 +14,7 @@ def center_window(top,w, h):
     top.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
 
+currentchoice = ""
 
 #set for turn and
 def decide_turn():
@@ -27,7 +28,7 @@ def decide_turn():
         return order,turn
     else:
         turn=0
-        order=1 # means player 2
+        order=0 # means player 2
         print('player 2 choose first')
         return order,turn
 
@@ -209,83 +210,128 @@ turn = int(decide_turn()[1])
 #print(turn)
 order = int(decide_turn()[0])
 print(order)
+playerTeam = []
+robTeam=[]
 def click1(x,y):
     global turn
     global order
+    global currentchoice
+    l=[]
 
     if order==0:
         if turn ==0:
             lab=tkinter.Label(text=y[x][2]+'('+y[x][1]+')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=250)
         if turn ==1:
             lab2 = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab2.place(x=900, y=250)
         if turn ==2:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=300)
         if turn ==3:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=300)
         if turn ==4:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=350)
         if turn ==5:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=350)
         if turn ==6:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=400)
         if turn ==7:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=400)
         if turn ==8:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=450)
         if turn ==9:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=450)
 
     if order==1:
         if turn ==0:
             lab=tkinter.Label(text=y[x][2]+'('+y[x][1]+')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=250)
         if turn ==1:
             lab2 = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab2.place(x=40, y=250)
         if turn ==2:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=300)
         if turn ==3:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=300)
         if turn ==4:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=350)
         if turn ==5:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=350)
         if turn ==6:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=400)
         if turn ==7:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=400)
         if turn ==8:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=900, y=450)
         if turn ==9:
             lab = tkinter.Label(text=y[x][2] + '(' + y[x][1] + ')')
+            currentchoice = y[x][2]
             lab.place(x=40, y=450)
 
 
 def okfunction():
     global turn
+    global currentchoice
+    global playerTeam
+    if(order == 0 ):
+        if(turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8):
+            playerTeam.append(currentchoice)
+        if (turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9):
+            robTeam.append(currentchoice)
+
+    if (order == 1):
+        if (turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9):
+            playerTeam.append(currentchoice)
+        if (turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8):
+            robTeam.append(currentchoice)
+
     turn = turn + 1
 
+def check():
+    print(robTeam)
+    print('')
+    print(playerTeam)
 
 
 buttonok=tkinter.Button(text='ok!',command=okfunction)#choose to change turn
 buttonok.place(x=500,y=650)
+
+buttonok=tkinter.Button(text='check!',command=check)#choose to change turn
+buttonok.place(x=600,y=650)
 
 button1=tkinter.Button(image=p1,command=lambda:click1(0,T1))
 button1.place(x=250,y=50)
