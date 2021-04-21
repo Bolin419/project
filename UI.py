@@ -28,7 +28,7 @@ def decide_turn():
         return order,turn
     else:
         turn=0
-        order=0 # means player 2
+        order=1 # means player 2
         print('player 2 choose first')
         return order,turn
 
@@ -307,16 +307,16 @@ def okfunction():
     global turn
     global currentchoice
     global playerTeam
-    if(order == 0 ):
-        if(turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8):
+    if order == 0:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
             playerTeam.append(currentchoice)
-        if (turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9):
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
             robTeam.append(currentchoice)
 
-    if (order == 1):
-        if (turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9):
+    if order == 1:
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
             playerTeam.append(currentchoice)
-        if (turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8):
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
             robTeam.append(currentchoice)
 
     turn = turn + 1
