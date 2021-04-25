@@ -209,7 +209,7 @@ p19 = ImageTk.PhotoImage(Ima19)
 p20 = ImageTk.PhotoImage(Ima20)
 
 # 14589 236710
-#
+
 turn = int(decide_turn()[1])
 # print(turn)
 order = int(decide_turn()[0])
@@ -273,29 +273,54 @@ def click1(x, y):
     update_label(lab)
 
 
+
 pool=[]
 for player in T1 + T2 + T3 + T4 + T5:
     pool.append(player[2])
 
-def cost (player):
-    return 3
+p=[]
+for i in T1 + T2 + T3 + T4 + T5:
+    p.append(i)
+
+def cost (Str):
+    money=0
+    for i in p:
+        if Str==i[2]:
+            if int(i[3]) >= 96:
+                money=5
+            if 92 <= int(i[3]) < 96:
+                money=4
+            if 88 <= int(i[3]) < 92:
+                money=3
+            if 84 <= int(i[3]) < 88:
+                money=2
+            if 80 <= int(i[3]) < 84:
+                money=1
+    return int(money)
+
+
+
+
 
 player_money = 19
 robot_money = 19
 
 def player_turn(pool, order, turn):
+    global player_money
     if(pool.__contains__(currentchoice)):
-        if(player_money >= money):
-            playerTeam.append(choice)
-    player_money -= cost(currentchcurrentoice);
+        if(player_money >= player_money):
+            playerTeam.append(currentchoice)
+    player_money -= cost(currentchoice);
+    print(player_money)
     return currentchoice
 
 def robot_turn(pool, order, turn):
-    a = rob(pool, order, turn, money)
+    global robot_money
+    a = rob(pool, order, turn, 0)
     if (pool.__contains__(a)):
-        if (player_money >= money):
+        if (robot_money >= robot_money):
             robTeam.append(a)
-    robot_money -= cost;
+    robot_money -= cost(currentchoice)
     update_label(tkinter.Label(text=a + '(' + a + ')'))
     return a
 
