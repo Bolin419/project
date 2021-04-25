@@ -311,7 +311,6 @@ def player_turn(pool, order, turn):
         if(player_money >= player_money):
             playerTeam.append(currentchoice)
     player_money -= cost(currentchoice);
-    print(player_money)
     return currentchoice
 
 def robot_turn(pool, order, turn):
@@ -338,7 +337,7 @@ def okfunction():
             selected = player_turn(pool, order, turn)
         if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
             selected = robot_turn(pool, order, turn)
-    
+    pool.remove(selected)
     turn = turn + 1
         
 
@@ -357,7 +356,6 @@ def rob(pool, order, turn, money):
 
 def check():
     print(robTeam)
-    print('')
     print(playerTeam)
 
 
