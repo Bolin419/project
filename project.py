@@ -26,7 +26,33 @@ Player_ability = [96, 93, 81, 95, 93, 84, 98, 90, 87, 96, 92, 97, 98, 92, 86, 99
 
 
 # print(Group_relation)
+import numpy as np
 
+a=[1,2,3,4,5]
+b=[10,20,40,50,70]
+
+def conversion(data_from, data_to):
+    mean1 = np.mean(data_from)
+    mean2 = np.mean(data_to)
+
+    std1 = np.std(data_from)
+    std2 = np.std(data_to)
+
+    samples = (len(data_from) + len(data_to)) * 100
+    a=np.sort(np.random.normal(mean1, std1, samples))
+    b=np.sort(np.random.normal(mean2, std2, samples))
+
+    for counter in range(0,len(data_from)):
+        dist = float('inf')
+        closest_index = 0
+        for i in range (0,len(a)):
+            if dist > abs(a[i] - data_from[counter]):
+                dist = abs(a[i] - data_from[counter])
+                closest_index = i
+        data_from[counter] = b[closest_index]
+    return data_from
+
+print(conversion(a,b))
 
 List_of_Group = [['Group 1', 'Karl Malone', 'Tony Stocketon', 'Jeff Hornacek', "1990-2000"],
                  ['Group 2', 'Wilt Chamberlain', 'Jerry West', 'Elgin Baylor', "1965-1975"],
