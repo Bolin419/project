@@ -17,6 +17,19 @@ List_ofPlayerandGroup = [['Karl Malone', 1], ['Jhon Stocketon', 1], ['Jeff Horna
 Player_ability = [96, 93, 81, 95, 93, 84, 98, 90, 87, 96, 92, 97, 98, 92, 86, 99, 95, 86, 97, 97, 92, 93, 88, 89, 94,
                   97, 91, 91, 88, 98, 94, 86, 95, 89, 86, 92, 89, 87]
 
+csv_file = csv.reader(open('per.csv', 'r', encoding='utf8'))
+
+per = []
+for i in csv_file:
+    per.append(i)
+
+per = per[1:len(per)]
+
+per_new = []
+for i in per:
+    per_new.append(float(i[4]))
+print(per_new)
+
 ###
 # Group_relation=[]
 # for i in range(len(List_ofPlayerandGroup)):
@@ -227,6 +240,13 @@ team_elo_mean/=len(team_Elo)
 
 conversion_factor = team_elo_mean/79.188
 
+elos = []
+for i in team_Elo:
+    elos.append(i[1])
+print(elos)
+print(per_new)
+normal_elos = conversion(elos, per_new)
+
 def Team_infor(String, Str1, Str2, Str3):
     count = 0
     team_sum = 0
@@ -245,7 +265,14 @@ def Team_infor(String, Str1, Str2, Str3):
                 f = 2
             else:
                 s3 = int(power(Str3))
-    t = (int(Get_teamElo(String)) / conversion_factor) * count - (team_sum - s1 - s2 - s3)
+    telo = int(Get_teamElo(String))
+    index = 0
+    for i in range(len(elos)):
+        if telo == elos[i]:
+            index = i
+    normalised_elo = normal_elos[i]
+
+    t = (normalised_elo) * count - (team_sum - s1 - s2 - s3)
     k = t - s1 - s2 - s3
     k /= f
     t = k + s1 + s2 + s3
@@ -280,9 +307,9 @@ cal_K_team = [[1, Team_infor('Utah Jazz', 'Karl Malone', 'John Stockton', 'Jeff 
 
 def whole_rating(str):  # from content get information
     rat = 0
-    for i in content:
-        if i[2] == str:
-            rat = i[3]
+    for i in per:
+        if i[1] == str:
+            rat = i[4]
     return int(rat)
 
 
