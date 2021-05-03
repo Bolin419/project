@@ -22,7 +22,7 @@ csv_file1 = csv.reader(open('team Elo.csv'))
 new_teamELo = []
 for i in csv_file1:
     new_teamELo.append(i)
-new_teamELo.remove(['\ufeffTeam', 'Elo'])
+new_teamELo.remove(new_teamELo[0])
 #print(new_teamELo)
 
 def conversion(data_from, data_to):
@@ -132,14 +132,10 @@ def Team_infor(String, Str1, Str2, Str3):
             else:
                 s3 = (power(Str3))
 
-    t = (Get_normaliseElo(String)) * count - (team_sum-s1-s2-s3)
+    t = (Get_normaliseElo(String)) * count - (team_sum)
 
-    k = t - s1 - s2 - s3
-    k /= f
-    t = k + s1 + s2 + s3
     t = t / f
     return t
-
 
 # each team k
 #cal_K_team = [[1, Team_infor('Utah Jazz', 'Karl Malone', 'John Stockton', 'Jeff Hornacek')],
@@ -198,6 +194,21 @@ def Data_memo(set):
             if G1 == G2 == G3:
                 Ds = Team_infor(G1,i[0],i[1],i[2])
                 Memo2[i] = Ds
+    true_memo = [(k,v) for k,v in Memo2.items()]
+    values = []
+    for (k,v) in true_memo:
+        values.append(float(v))
+    print(values)
+    print(per_new)
+    normal_values = conversion(values, per_new)
+    for i in range(0,len(true_memo)):
+        true_memo[i] = (true_memo[i][0],normal_values[i])
+    for (k,v) in true_memo:
+        Memo2[k] = v
+    for i in set:
+        if len(i) == 1:
+            Ds = whole_rating(i[0])
+            Memo2[i] = Ds
     return Memo2
 
 
@@ -260,6 +271,7 @@ print(teamset('2007-08 Denver Nuggets'))
 #print(Strength(('Carmelo Anthony', 'Allen Iverson', 'Marcus Camby','Tim Duncan','Tony Parker')))
 
 print(Strength(teamset('2007-08 Denver Nuggets')))
+print(Strength(teamset('2012-13 Miami Heat')))
 def get_player_num(str):
     num = 0
     for i in per:
