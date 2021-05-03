@@ -32,7 +32,7 @@ def conversion(data_from, data_to):
     std1 = np.std(data_from)
     std2 = np.std(data_to)
 
-    samples = (len(data_from) + len(data_to)) * 100
+    samples = 10000
     a=np.sort(np.random.normal(mean1, std1, samples))
     b=np.sort(np.random.normal(mean2, std2, samples))
 
@@ -201,6 +201,7 @@ def Data_memo(set):
     print(values)
     print(per_new)
     normal_values = conversion(values, per_new)
+    print(normal_values)
     for i in range(0,len(true_memo)):
         true_memo[i] = (true_memo[i][0],normal_values[i])
     for (k,v) in true_memo:
@@ -209,6 +210,7 @@ def Data_memo(set):
         if len(i) == 1:
             Ds = whole_rating(i[0])
             Memo2[i] = Ds
+    print(Memo2)
     return Memo2
 
 
