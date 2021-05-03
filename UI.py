@@ -6,7 +6,6 @@ import csv
 
 
 
-
 def center_window(top, w, h):
     # 获取屏幕 宽、高
     ws = top.winfo_screenwidth()
@@ -22,9 +21,23 @@ currentchoice = ""
 
 
 center_window(top3,500,500)
+top3.title('New Fantasy')
+bg = Image.open('/Users/zbl/Desktop/nba-logo.png')
+bg = bg.resize((500, 500), Image.ANTIALIAS)
+background = ImageTk.PhotoImage(bg)
+canvas1 = tkinter.Canvas(top3, width=500,
+                 height=500)
+
+canvas1.pack(fill="both", expand=True)
+
+# Display image
+canvas1.create_image(0, 0, image=background,anchor="nw")
+
+# Add Text
+canvas1.create_text(250, 100,font=('Pursia',30), text="Welcome" ,fill='Yellow')
 
 
-    # set for turn and
+# set for turn and
 def decide_turn():
     small = 1
     big = 6
@@ -504,16 +517,25 @@ def rule_page():
     top2 = tkinter.Toplevel()
     top2.title('Rule of Game')
     center_window(top2, 500, 350)
-    lab1 = tkinter.Label(top2, text='rating for Team1')
-    lab1.pack()
+    canvas2 = tkinter.Canvas(top2, width=500,
+                             height=350)
+
+    canvas2.pack(fill="both", expand=True)
+    rule='Hello,Welcome to the rule page of New Fantasy,You can choose\n the mode which you can play with you friends or play against the AI \n.'
+
+    # Display image
+    canvas2.create_image(0, 0, image=background, anchor="nw")
+    canvas2.create_text(250, 25, text="The Rule of New Fantasy", font=('Pursia',30),fill='Yellow')
+    canvas2.create_text(250, 90, text=rule, fill='Yellow')
+
 
 
 
 
 start_button=tkinter.Button(top3,text='Start',command=start)
-start_button.place(x=250,y=250)
+start_button.place(x=225,y=250)
 rule_button=tkinter.Button(top3,text='rule',command=rule_page)
-rule_button.place(x=250,y=300)
+rule_button.place(x=225,y=300)
 
 
 
