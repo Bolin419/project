@@ -132,7 +132,7 @@ def Team_infor(String, Str1, Str2, Str3):
             else:
                 s3 = (power(Str3))
 
-    t = (Get_normaliseElo(String)) * count - (team_sum)
+    t = (Get_normaliseElo(String)) * count - (team_sum) + (s1+s2+s3)
 
     t = t / f
     return t
@@ -274,6 +274,7 @@ print(teamset('2007-08 Denver Nuggets'))
 
 print(Strength(teamset('2007-08 Denver Nuggets')))
 print(Strength(teamset('2012-13 Miami Heat')))
+print(Strength(teamset('2010-11 Dallas Mavericks')))
 def get_player_num(str):
     num = 0
     for i in per:
