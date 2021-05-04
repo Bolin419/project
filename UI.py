@@ -44,53 +44,55 @@ def decide_turn():
     if random.randint(small, big) <= 3:
         turn = 0
         order = 0  # 0 means player1
-        print('player 1 choose first')
-        return order, turn
+        text='player 1 choose first'
+        print(text)
+        return order, turn,text
     else:
         turn = 0
         order = 1  # means player 2
-        print('player 2 choose first')
-        return order, turn
+        text='player 2 choose first'
+        print(text)
+        return order, turn,text
 
-csv_file = csv.reader(open('球员1.csv', 'r', encoding='utf8'))
+csv_file5 = csv.reader(open('球员1.csv', 'r', encoding='utf8'))
 
 # print(csv_file)
-content = []
-for i in csv_file:
-    content.append(i)
-content.remove(['\ufeffNo.', 'Team name', 'Player name', 'rating'])
+content5 = []
+for i in csv_file5:
+    content5.append(i)
+content5.remove(['\ufeffNo.', 'Team name', 'Player name', 'rating'])
 
 def generate_list1():
     UI_list1 = []
-    for i in content:
+    for i in content5:
         if int(i[3]) >= 96:
             UI_list1.append(i)
     return UI_list1
 
 def generate_list2():
     UI_list2 = []
-    for i in content:
+    for i in content5:
         if 92 <= int(i[3]) < 96:
             UI_list2.append(i)
     return UI_list2
 
 def generate_list3():
     UI_list3 = []
-    for i in content:
+    for i in content5:
         if 88 <= int(i[3]) < 92:
             UI_list3.append(i)
     return UI_list3
 
 def generate_list4():
     UI_list4 = []
-    for i in content:
+    for i in content5:
         if 84 <= int(i[3]) < 88:
             UI_list4.append(i)
     return UI_list4
 
 def generate_list5():
     UI_list5 = []
-    for i in content:
+    for i in content5:
         if 80 <= int(i[3]) < 84:
             UI_list5.append(i)
     return UI_list5
@@ -210,12 +212,13 @@ p18 = ImageTk.PhotoImage(Ima18)
 p19 = ImageTk.PhotoImage(Ima19)
 p20 = ImageTk.PhotoImage(Ima20)
 
-# 14589 236710
-
-turn = int(decide_turn()[1])
+# 14589 236710 the turn check
+roll=decide_turn()
+turn = int(roll[1])
 # print(turn)
-order = int(decide_turn()[0])
-print(order)
+order = int(roll[0])
+#print(order)
+text=roll[2]
 playerTeam = []
 robTeam = []
 
@@ -329,10 +332,18 @@ def start():
     top.title('Fantasy League Team')
     center_window(top, 1000, 700)
 
+    global turn,text,order
+    print(order)
+    print(text)
+    label2=tkinter.Label(top,text=text)
+    label2.place(x=50,y=30)
+    turn_label = tkinter.Label(top, text=turn)
+    turn_label.place(x=50, y=50)
+
+
     def okfunction():
         global turn
         selected = ""
-
         if order == 0:
             if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
                 selected = player_turn(pool, order, turn)
@@ -345,6 +356,10 @@ def start():
                 selected = robot_turn(pool, order, turn)
         pool.remove(selected)
         turn = turn + 1
+        turn_label = tkinter.Label(top, text=turn)
+        turn_label.place(x=50, y=50)
+
+
 
     buttonok = tkinter.Button(top,text='ok!', command=okfunction)  # choose to change turn
     buttonok.place(x=500, y=650)
