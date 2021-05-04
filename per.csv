@@ -1,9 +1,9 @@
 ﻿Rk,name,G,MP,PER,Team
-1,Karl Malone\malonka01,81,3030,27.9,1997-98 Utah Jazz
-2,Jeff Hornacek\hornaje01,80,2460,19.3,1997-98 Utah Jazz
+1,Karl Malone,81,3030,27.9,1997-98 Utah Jazz
+2,Jeff Hornacek,80,2460,19.3,1997-98 Utah Jazz
 3,Bryon Russell\russebr01,82,2219,12.9,1997-98 Utah Jazz
 4,Adam Keefe\keefead01,80,2047,14.5,1997-98 Utah Jazz
-5,John Stockton\stockjo01,64,1858,21.8,1997-98 Utah Jazz
+5,John Stockton,64,1858,21.8,1997-98 Utah Jazz
 6,Howard Eisley\eisleho01,82,1726,13.6,1997-98 Utah Jazz
 7,Shandon Anderson\andersh01,82,1602,15.7,1997-98 Utah Jazz
 8,Greg Foster\fostegr01,78,1446,8.9,1997-98 Utah Jazz
@@ -13,10 +13,10 @@
 12,Jacque Vaughn\vaughja01,45,419,6.9,1997-98 Utah Jazz
 13,William Cunningham\cunniwi01,6,38,8.7,1997-98 Utah Jazz
 14,Troy Hudson\hudsotr01,8,23,5.1,1997-98 Utah Jazz
-1,Wilt Chamberlain\chambwi01,82,3630,20.3,1970-71 Los Angeles Lakers
+1,Wilt Chamberlain,82,3630,20.3,1970-71 Los Angeles Lakers
 2,Happy Hairston\hairsha01,80,2921,16.2,1970-71 Los Angeles Lakers
-3,Jerry West\westje01,69,2845,23.5,1970-71 Los Angeles Lakers
-4,Gail Goodrich\goodrga01,79,2808,14.6,1970-71 Los Angeles Lakers
+3,Jerry West,69,2845,23.5,1970-71 Los Angeles Lakers
+4,Gail Goodrich,79,2808,14.6,1970-71 Los Angeles Lakers
 5,Keith Erickson\erickke01,73,2272,11.5,1970-71 Los Angeles Lakers
 6,Jim McMillian\mcmilji01,81,1747,12.2,1970-71 Los Angeles Lakers
 7,Willie McCarter\mccarwi01,76,1369,8.5,1970-71 Los Angeles Lakers
@@ -26,10 +26,10 @@
 11,John Tresvant\tresvjo01,8,66,22.7,1970-71 Los Angeles Lakers
 12,Elgin Baylor\bayloel01,2,57,9,1970-71 Los Angeles Lakers
 13,Earnie Killum\killuea01,4,12,-5.3,1970-71 Los Angeles Lakers
-1,Tony Parker\parketo01,80,2735,18,2004-05 San Antonio Spurs
-2,Bruce Bowen\bowenbr01,82,2627,9.5,2004-05 San Antonio Spurs
-3,Tim Duncan\duncati01,66,2203,27,2004-05 San Antonio Spurs
-4,Manu Ginóbili\ginobma01,74,2193,22.3,2004-05 San Antonio Spurs
+1,Tony Parker,80,2735,18,2004-05 San Antonio Spurs
+2,Bruce Bowen,82,2627,9.5,2004-05 San Antonio Spurs
+3,Tim Duncan,66,2203,27,2004-05 San Antonio Spurs
+4,Manu Ginobili,74,2193,22.3,2004-05 San Antonio Spurs
 5,Rasho Nesterovi_\nestera01,70,1785,12,2004-05 San Antonio Spurs
 6,Brent Barry\barrybr01,81,1742,14,2004-05 San Antonio Spurs
 7,Robert Horry\horryro01,75,1396,14.9,2004-05 San Antonio Spurs
@@ -43,11 +43,11 @@
 15,Glenn Robinson\robingl01,9,157,17.2,2004-05 San Antonio Spurs
 16,Dion Glover\glovedi01,7,68,14,2004-05 San Antonio Spurs
 17,Linton Johnson\johnsli01,2,15,-3.4,2004-05 San Antonio Spurs
-1,Klay Thompson\thompkl01,78,2649,17.4,2016-17 Golden State Warriors
-2,Stephen Curry\curryst01,79,2638,24.6,2016-17 Golden State Warriors
-3,Draymond Green\greendr01,76,2471,16.5,2016-17 Golden State Warriors
-4,Kevin Durant\duranke01,62,2070,27.6,2016-17 Golden State Warriors
-5,Andre Iguodala\iguodan01,76,1998,14.3,2016-17 Golden State Warriors
+1,Klay Thompson,78,2649,17.4,2016-17 Golden State Warriors
+2,Stephen Curry,79,2638,24.6,2016-17 Golden State Warriors
+3,Draymond Green,76,2471,16.5,2016-17 Golden State Warriors
+4,Kevin Durant,62,2070,27.6,2016-17 Golden State Warriors
+5,Andre Iguodala,76,1998,14.3,2016-17 Golden State Warriors
 6,Shaun Livingston\livinsh01,76,1345,10.1,2016-17 Golden State Warriors
 7,Zaza Pachulia\pachuza01,70,1268,16.1,2016-17 Golden State Warriors
 8,Ian Clark\clarkia01,77,1137,13.1,2016-17 Golden State Warriors
@@ -60,9 +60,9 @@
 15,Anderson Varej_o\varejan01,14,92,9.4,2016-17 Golden State Warriors
 16,Damian Jones\jonesda03,10,85,5.3,2016-17 Golden State Warriors
 17,Briante Weber\weberbr01,7,46,5.9,2016-17 Golden State Warriors
-1,LeBron James\jamesle01,76,2877,31.6,2012-13 Miami Heat
-2,Chris Bosh\boshch01,74,2454,20,2012-13 Miami Heat
-3,Dwyane Wade\wadedw01,69,2391,24,2012-13 Miami Heat
+1,LeBron James,76,2877,31.6,2012-13 Miami Heat
+2,Chris Bosh,74,2454,20,2012-13 Miami Heat
+3,Dwyane Wade,69,2391,24,2012-13 Miami Heat
 4,Mario Chalmers\chalmma01,77,2068,13.3,2012-13 Miami Heat
 5,Ray Allen\allenra03,79,2035,14.7,2012-13 Miami Heat
 6,Shane Battier\battish01,72,1786,10.7,2012-13 Miami Heat
@@ -78,9 +78,9 @@
 16,Josh Harrellson\harrejo01,6,31,8.5,2012-13 Miami Heat
 17,Terrel Harris\harrite01,7,29,7.2,2012-13 Miami Heat
 18,Dexter Pittman\pittmde01,4,12,17,2012-13 Miami Heat
-1,Michael Jordan\jordami01,82,3090,29.4,1995-96 Chicago Bulls
-2,Scottie Pippen\pippesc01,77,2825,21,1995-96 Chicago Bulls
-3,Toni Kuko_\kukocto01,81,2103,20.4,1995-96 Chicago Bulls
+1,Michael Jordan,82,3090,29.4,1995-96 Chicago Bulls
+2,Scottie Pippen,77,2825,21,1995-96 Chicago Bulls
+3,Toni Kukoc,81,2103,20.4,1995-96 Chicago Bulls
 4,Dennis Rodman\rodmade01,64,2088,13.6,1995-96 Chicago Bulls
 5,Steve Kerr\kerrst01,82,1919,15.2,1995-96 Chicago Bulls
 6,Ron Harper\harpero01,80,1886,14.4,1995-96 Chicago Bulls
@@ -93,9 +93,9 @@
 13,James Edwards\edwarja01,28,274,3.5,1995-96 Chicago Bulls
 14,John Salley\sallejo01,17,191,8.7,1995-96 Chicago Bulls
 15,Jack Haley\haleyja01,1,7,1.8,1995-96 Chicago Bulls
-1,Shaquille O'Neal\onealsh01,74,2924,30.2,2000-01 Los Angeles Lakers
-2,Kobe Bryant\bryanko01,68,2783,24.5,2000-01 Los Angeles Lakers
-3,Horace Grant\grantho01,77,2390,14.3,2000-01 Los Angeles Lakers
+1,Shaquille ONeal,74,2924,30.2,2000-01 Los Angeles Lakers
+2,Kobe Bryant,68,2783,24.5,2000-01 Los Angeles Lakers
+3,Horace Grant,77,2390,14.3,2000-01 Los Angeles Lakers
 4,Rick Fox\foxri01,82,2291,13.8,2000-01 Los Angeles Lakers
 5,Brian Shaw\shawbr01,80,1833,10.9,2000-01 Los Angeles Lakers
 6,Robert Horry\horryro02,79,1587,11,2000-01 Los Angeles Lakers
@@ -108,10 +108,10 @@
 13,Tyronn Lue\luety01,38,468,8.7,2000-01 Los Angeles Lakers
 14,Greg Foster\fostegr02,62,451,9.5,2000-01 Los Angeles Lakers
 15,Stanislav Medvedenko\medvest01,7,39,21.8,2000-01 Los Angeles Lakers
-1,Paul Pierce\piercpa01,80,2874,19.6,2007-08 Boston Celtics
-2,Ray Allen\allenra02,73,2624,16.4,2007-08 Boston Celtics
-3,Kevin Garnett\garneke01,71,2328,25.3,2007-08 Boston Celtics
-4,Rajon Rondo\rondora01,77,2306,15.6,2007-08 Boston Celtics
+1,Paul Pierce,80,2874,19.6,2007-08 Boston Celtics
+2,Ray Allen,73,2624,16.4,2007-08 Boston Celtics
+3,Kevin Garnett,71,2328,25.3,2007-08 Boston Celtics
+4,Rajon Rondo,77,2306,15.6,2007-08 Boston Celtics
 5,Kendrick Perkins\perkike01,78,1912,13.3,2007-08 Boston Celtics
 6,James Posey\poseyja01,74,1821,12,2007-08 Boston Celtics
 7,Eddie House\houseed01,78,1480,13,2007-08 Boston Celtics
@@ -123,10 +123,10 @@
 13,P.J. Brown\brownpj01,18,209,10.2,2007-08 Boston Celtics
 14,Scot Pollard\pollasc01,22,173,8.7,2007-08 Boston Celtics
 15,Gabe Pruitt\pruitga01,15,95,8.3,2007-08 Boston Celtics
-1,Gary Payton\paytoga01,81,3162,19.6,1995-96 Seattle SuperSonics
+1,Gary Payton,81,3162,19.6,1995-96 Seattle SuperSonics
 2,Hersey Hawkins\hawkihe01,82,2823,16.1,1995-96 Seattle SuperSonics
-3,Shawn Kemp\kempsh01,79,2631,22.6,1995-96 Seattle SuperSonics
-4,Detlef Schrempf\schrede01,63,2200,17.3,1995-96 Seattle SuperSonics
+3,Shawn Kemp,79,2631,22.6,1995-96 Seattle SuperSonics
+4,Detlef Schrempf,63,2200,17.3,1995-96 Seattle SuperSonics
 5,Sam Perkins\perkisa01,82,2169,15.4,1995-96 Seattle SuperSonics
 6,Vincent Askew\askewvi01,69,1725,11.9,1995-96 Seattle SuperSonics
 7,Ervin Johnson\johnser02,81,1519,13.1,1995-96 Seattle SuperSonics
@@ -136,11 +136,11 @@
 11,Eric Snow\snower01,43,389,10.7,1995-96 Seattle SuperSonics
 12,Steve Scheffler\schefst01,35,181,10.3,1995-96 Seattle SuperSonics
 13,Sherell Ford\fordsh01,28,139,16.4,1995-96 Seattle SuperSonics
-1,Larry Bird\birdla01,82,3113,25.6,1985-86 Boston Celtics
-2,Dennis Johnson\johnsde01,78,2732,14.7,1985-86 Boston Celtics
-3,Robert Parish\parisro01,81,2567,18.8,1985-86 Boston Celtics
+1,Larry Bird,82,3113,25.6,1985-86 Boston Celtics
+2,Dennis Johnson,78,2732,14.7,1985-86 Boston Celtics
+3,Robert Parish,81,2567,18.8,1985-86 Boston Celtics
 4,Danny Ainge\aingeda01,80,2407,13.6,1985-86 Boston Celtics
-5,Kevin McHale\mchalke01,68,2397,21.6,1985-86 Boston Celtics
+5,Kevin McHale,68,2397,21.6,1985-86 Boston Celtics
 6,Jerry Sichting\sichtje01,82,1596,11.9,1985-86 Boston Celtics
 7,Bill Walton\waltobi01,80,1546,17,1985-86 Boston Celtics
 8,Scott Wedman\wedmasc01,79,1402,12.5,1985-86 Boston Celtics
@@ -150,11 +150,11 @@
 12,David Thirdkill\thirdda01,49,385,12.1,1985-86 Boston Celtics
 1,Rafer Alston\alstora01,82,3040,12.9,2006-07 Houston Rockets
 2,Shane Battier\battish02,82,2988,12,2006-07 Houston Rockets
-3,Tracy McGrady\mcgratr01,71,2539,23.2,2006-07 Houston Rockets
+3,Tracy McGrady,71,2539,23.2,2006-07 Houston Rockets
 4,Luther Head\headlu01,80,2211,13.7,2006-07 Houston Rockets
 5,Juwan Howard\howarju02,80,2123,12.8,2006-07 Houston Rockets
 6,Chuck Hayes\hayesch01,78,1714,13.9,2006-07 Houston Rockets
-7,Yao Ming\mingya01,48,1624,26.5,2006-07 Houston Rockets
+7,Yao Ming,48,1624,26.5,2006-07 Houston Rockets
 8,Dikembe Mutombo\mutomdi01,75,1289,14.4,2006-07 Houston Rockets
 9,Bonzi Wells\wellsbo01,28,590,8.9,2006-07 Houston Rockets
 10,Kirk Snyder\snydeki01,39,563,12.2,2006-07 Houston Rockets
@@ -163,11 +163,11 @@
 13,Scott Padgett\padgesc01,24,198,5.6,2006-07 Houston Rockets
 14,Steve Novak\novakst01,35,191,7.7,2006-07 Houston Rockets
 15,Jake Tsakalidis\tsakaja01,13,132,12,2006-07 Houston Rockets
-1,Magic Johnson\johnsma02,80,2904,27,1986-87 Los Angeles Lakers
-2,James Worthy\worthja01,82,2819,18.4,1986-87 Los Angeles Lakers
-3,Byron Scott\scottby01,82,2729,16,1986-87 Los Angeles Lakers
-4,Kareem Abdul-Jabbar\abdulka01,78,2441,17.9,1986-87 Los Angeles Lakers
-5,Michael Cooper\coopemi01,82,2253,14,1986-87 Los Angeles Lakers
+1,Magic Johnson,80,2904,27,1986-87 Los Angeles Lakers
+2,James Worthy,82,2819,18.4,1986-87 Los Angeles Lakers
+3,Byron Scott,82,2729,16,1986-87 Los Angeles Lakers
+4,Kareem Abdul-Jabbar,78,2441,17.9,1986-87 Los Angeles Lakers
+5,Michael Cooper,82,2253,14,1986-87 Los Angeles Lakers
 6,A.C. Green\greenac01,79,2240,15.7,1986-87 Los Angeles Lakers
 7,Kurt Rambis\rambiku01,78,1514,12.6,1986-87 Los Angeles Lakers
 8,Billy Thompson\thompbi01,59,762,12.8,1986-87 Los Angeles Lakers
@@ -176,10 +176,10 @@
 11,Frank Brickowski\brickfr02,37,404,10.2,1986-87 Los Angeles Lakers
 12,Mike Smrek\smrekmi01,35,233,5,1986-87 Los Angeles Lakers
 1,Joe Johnson\johnsjo02,82,3240,15.1,2004-05 Phoenix Suns
-2,Shawn Marion\mariosh01,81,3146,21.7,2004-05 Phoenix Suns
-3,Amar'e Stoudemire\stoudam01,80,2889,26.6,2004-05 Phoenix Suns
+2,Shawn Marion,81,3146,21.7,2004-05 Phoenix Suns
+3,Amare Stoudemire,80,2889,26.6,2004-05 Phoenix Suns
 4,Quentin Richardson\richaqu01,79,2839,13.6,2004-05 Phoenix Suns
-5,Steve Nash\nashst01,75,2573,22,2004-05 Phoenix Suns
+5,Steve Nash,75,2573,22,2004-05 Phoenix Suns
 6,Leandro Barbosa\barbole01,63,1087,12.8,2004-05 Phoenix Suns
 7,Steven Hunter\huntest01,76,1046,14.7,2004-05 Phoenix Suns
 8,Jim Jackson\jacksji01,40,997,11.4,2004-05 Phoenix Suns
@@ -190,17 +190,17 @@
 13,Maciej Lampe\lampema01,16,119,5,2004-05 Phoenix Suns
 14,Jackson Vroman\vromaja01,10,57,8.2,2004-05 Phoenix Suns
 15,Smush Parker\parkesm01,5,34,4.3,2004-05 Phoenix Suns
-1,Allen Iverson\iversal01,82,3424,20.9,2007-08 Denver Nuggets
-2,Carmelo Anthony\anthoca01,77,2806,21.1,2007-08 Denver Nuggets
-3,Marcus Camby\cambyma01,79,2758,17.2,2007-08 Denver Nuggets
+1,Allen Iverson,82,3424,20.9,2007-08 Denver Nuggets
+2,Carmelo Anthony,77,2806,21.1,2007-08 Denver Nuggets
+3,Marcus Camby,79,2758,17.2,2007-08 Denver Nuggets
 4,Kenyon Martin\martike01,71,2159,14.7,2007-08 Denver Nuggets
 5,Anthony Carter\cartean01,70,1960,12.8,2007-08 Denver Nuggets
 6,Linas Kleiza\kleizli01,79,1889,14.4,2007-08 Denver Nuggets
-7,Eduardo Nájera\najered01,78,1664,12.1,2007-08 Denver Nuggets
+7,Eduardo N谩jera\najered01,78,1664,12.1,2007-08 Denver Nuggets
 8,J.R. Smith\smithjr01,74,1421,18.1,2007-08 Denver Nuggets
 9,Yakhouba Diawara\diawaya01,54,542,8.1,2007-08 Denver Nuggets
 10,Chucky Atkins\atkinch01,24,352,8.9,2007-08 Denver Nuggets
-11,Nenê Hilário\hilarne01,16,266,11.1,2007-08 Denver Nuggets
+11,Nen锚 Hil谩rio\hilarne01,16,266,11.1,2007-08 Denver Nuggets
 12,Bobby Jones\jonesbo02,25,222,8.5,2007-08 Denver Nuggets
 13,Mike Wilks\wilksmi02,8,122,6.4,2007-08 Denver Nuggets
 14,Steven Hunter\huntest02,19,120,8.6,2007-08 Denver Nuggets
