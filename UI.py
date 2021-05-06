@@ -371,6 +371,9 @@ def check2():
     print('playerTeam', playerTeam)
 
 
+
+
+#Player Against AI mode
 def Player_against_AI():
     top = tkinter.Toplevel()
     top.title('Fantasy League Team')
@@ -392,14 +395,14 @@ def Player_against_AI():
                 has_choosen=True
                 playerTeam.append(currentchoice)
                 player_money -= cost(currentchoice)
-                money_label = tkinter.Label(top, text='money:'+str(player_money))
-                money_label.place(x=50, y=100)
+                money_label = tkinter.Label(top, text='Player_money:' +str(player_money))
+                money_label.place(x=50, y=150)
                 print(player_money)
             else:
                 has_choosen=False
                 messagebox.showerror('error', 'You don not have enough money!')
         else:
-            messagebox.showerror('error', 'The player have already be chosen!')
+            messagebox.showerror('error', 'The player have already be chosen! or You have not choose the player!')
         return currentchoice,has_choosen
 
     def click1(x, y):
@@ -453,110 +456,125 @@ def Player_against_AI():
 
 
     buttonok = tkinter.Button(top,text='ok!', command=okfunction)  # choose to change turn
-    buttonok.place(x=500, y=650)
+    buttonok.place(x=475, y=670)
 
     buttonok = tkinter.Button(top,text='check!', command=check)  # choose to change turn
-    buttonok.place(x=600, y=650)
+    buttonok.place(x=75, y=575)
 
-    money_label = tkinter.Label(top, text='money:'+str(player_money))
-    money_label.place(x=50, y=100)
+    money_label = tkinter.Label(top, text='Player_money: ' +str(player_money))
+    money_label.place(x=50, y=150)
+
+    # T1 Player
+    button1 = tkinter.Button(top, image=p1, command=lambda: click1(0, T1))
+    button1.place(x=250, y=25)
+    button2 = tkinter.Button(top, image=p2, command=lambda: click1(1, T1))
+    button2.place(x=370, y=25)
+    button3 = tkinter.Button(top, image=p3, command=lambda: click1(2, T1))
+    button3.place(x=490, y=25)
+    button4 = tkinter.Button(top, image=p4, command=lambda: click1(3, T1))
+    button4.place(x=610, y=25)
+
+    # T2 Player
+    button5 = tkinter.Button(top, image=p5, command=lambda: click1(0, T2))
+    button5.place(x=250, y=155)
+    button6 = tkinter.Button(top, image=p6, command=lambda: click1(1, T2))
+    button6.place(x=370, y=155)
+    button7 = tkinter.Button(top, image=p7, command=lambda: click1(2, T2))
+    button7.place(x=490, y=155)
+    button8 = tkinter.Button(top, image=p8, command=lambda: click1(3, T2))
+    button8.place(x=610, y=155)
+
+    # T3 Player
+    button9 = tkinter.Button(top, image=p9, command=lambda: click1(0, T3))
+    button9.place(x=250, y=285)
+    button10 = tkinter.Button(top, image=p10, command=lambda: click1(1, T3))
+    button10.place(x=370, y=285)
+    button11 = tkinter.Button(top, image=p11, command=lambda: click1(2, T3))
+    button11.place(x=490, y=285)
+    button12 = tkinter.Button(top, image=p12, command=lambda: click1(3, T3))
+    button12.place(x=610, y=285)
+
+    # T4 Player
+    button13 = tkinter.Button(top, image=p13, command=lambda: click1(0, T4))
+    button13.place(x=250, y=415)
+    button14 = tkinter.Button(top, image=p14, command=lambda: click1(1, T4))
+    button14.place(x=370, y=415)
+    button15 = tkinter.Button(top, image=p15, command=lambda: click1(2, T4))
+    button15.place(x=490, y=415)
+    button16 = tkinter.Button(top, image=p16, command=lambda: click1(3, T4))
+    button16.place(x=610, y=415)
+
+    # T5 Player
+    button17 = tkinter.Button(top, image=p17, command=lambda: click1(0, T5))
+    button17.place(x=250, y=545)
+    button18 = tkinter.Button(top, image=p18, command=lambda: click1(1, T5))
+    button18.place(x=370, y=545)
+    button19 = tkinter.Button(top, image=p19, command=lambda: click1(2, T5))
+    button19.place(x=490, y=545)
+    button20 = tkinter.Button(top, image=p20, command=lambda: click1(3, T5))
+    button20.place(x=610, y=545)
 
 
 
+    Label1 = tkinter.Label(top, text=T1[0][2] + '\n(' + T1[0][1] + ')')
+    Label1.place(x=270, y=118)
+    Label2 = tkinter.Label(top, text=T1[1][2] + '\n(' + T1[1][1] + ')')
+    Label2.place(x=390, y=118)
+    Label3 = tkinter.Label(top, text=T1[2][2] + '\n(' + T1[2][1] + ')')
+    Label3.place(x=510, y=118)
+    Label4 = tkinter.Label(top, text=T1[3][2] + '\n(' + T1[3][1] + ')')
+    Label4.place(x=630, y=118)
+    LabelT1 = tkinter.Label(top, text="T1 Player(Cost Money:5)!", font=('Pursia', 13))
+    LabelT1.place(x=750, y=68)
 
+    Label5 = tkinter.Label(top, text=T2[0][2] + '\n(' + T2[0][1] + ')')
+    Label5.place(x=270, y=248)
+    Label6 = tkinter.Label(top, text=T2[1][2] + '\n(' + T2[1][1] + ')')
+    Label6.place(x=390, y=248)
+    Label7 = tkinter.Label(top, text=T2[2][2] + '\n(' + T2[2][1] + ')')
+    Label7.place(x=510, y=248)
+    Label8 = tkinter.Label(top, text=T2[3][2] + '\n(' + T2[3][1] + ')')
+    Label8.place(x=630, y=248)
+    LabelT2 = tkinter.Label(top, text="T2 Player(Cost Money:4)!", font=('Pursia', 13))
+    LabelT2.place(x=750, y=198)
 
-    button1 = tkinter.Button(top,image=p1, command=lambda: click1(0, T1))
-    button1.place(x=250, y=50)
-    button2 = tkinter.Button(top,image=p2, command=lambda: click1(1, T1))
-    button2.place(x=370, y=50)
-    button3 = tkinter.Button(top,image=p3, command=lambda: click1(2, T1))
-    button3.place(x=490, y=50)
-    button4 = tkinter.Button(top,image=p4, command=lambda: click1(3, T1))
-    button4.place(x=610, y=50)
-    
-    button5 = tkinter.Button(top,image=p5, command=lambda: click1(0, T2))
-    button5.place(x=250, y=165)
-    button6 = tkinter.Button(top,image=p6, command=lambda: click1(1, T2))
-    button6.place(x=370, y=165)
-    button7 = tkinter.Button(top,image=p7, command=lambda: click1(2, T2))
-    button7.place(x=490, y=165)
-    button8 = tkinter.Button(top,image=p8, command=lambda: click1(3, T2))
-    button8.place(x=610, y=165)
-    
-    button9 = tkinter.Button(top,image=p9, command=lambda: click1(0, T3))
-    button9.place(x=250, y=280)
-    button10 = tkinter.Button(top,image=p10, command=lambda: click1(1, T3))
-    button10.place(x=370, y=280)
-    button11 = tkinter.Button(top,image=p11, command=lambda: click1(2, T3))
-    button11.place(x=490, y=280)
-    button12 = tkinter.Button(top,image=p12, command=lambda: click1(3, T3))
-    button12.place(x=610, y=280)
-    
-    button13 = tkinter.Button(top,image=p13, command=lambda: click1(0, T4))
-    button13.place(x=250, y=395)
-    button14 = tkinter.Button(top,image=p14, command=lambda: click1(1, T4))
-    button14.place(x=370, y=395)
-    button15 = tkinter.Button(top,image=p15, command=lambda: click1(2, T4))
-    button15.place(x=490, y=395)
-    button16 = tkinter.Button(top,image=p16, command=lambda: click1(3, T4))
-    button16.place(x=610, y=395)
-    
-    button17 = tkinter.Button(top,image=p17, command=lambda: click1(0, T5))
-    button17.place(x=250, y=510)
-    button18 = tkinter.Button(top,image=p18, command=lambda: click1(1, T5))
-    button18.place(x=370, y=510)
-    button19 = tkinter.Button(top,image=p19, command=lambda: click1(2, T5))
-    button19.place(x=490, y=510)
-    button20 = tkinter.Button(top,image=p20, command=lambda: click1(3, T5))
-    button20.place(x=610, y=510)
-    
-    Label1 = tkinter.Label(top, text=T1[0][2] + '(' + T1[0][1] + ')')
-    Label1.place(x=250, y=145)
-    Label2 = tkinter.Label(top,text=T1[1][2] + '(' + T1[1][1] + ')')
-    Label2.place(x=370, y=145)
-    Label3 = tkinter.Label(top,text=T1[2][2] + '(' + T1[2][1] + ')')
-    Label3.place(x=490, y=145)
-    Label4 = tkinter.Label(top,text=T1[3][2] + '(' + T1[3][1] + ')')
-    Label4.place(x=610, y=145)
-    
-    Label5 = tkinter.Label(top,text=T2[0][2] + '(' + T2[0][1] + ')')
-    Label5.place(x=250, y=260)
-    Label6 = tkinter.Label(top,text=T2[1][2] + '(' + T2[1][1] + ')')
-    Label6.place(x=370, y=260)
-    Label7 = tkinter.Label(top,text=T2[2][2] + '(' + T2[2][1] + ')')
-    Label7.place(x=490, y=260)
-    Label8 = tkinter.Label(top,text=T2[3][2] + '(' + T2[3][1] + ')')
-    Label8.place(x=610, y=260)
-    
-    Label9 = tkinter.Label(top,text=T3[0][2] + '(' + T3[0][1] + ')')
-    Label9.place(x=250, y=375)
-    Label10 = tkinter.Label(top,text=T3[1][2] + '(' + T3[1][1] + ')')
-    Label10.place(x=370, y=375)
-    Label11 = tkinter.Label(top,text=T3[2][2] + '(' + T3[2][1] + ')')
-    Label11.place(x=490, y=375)
-    Label12 = tkinter.Label(top,text=T3[3][2] + '(' + T3[3][1] + ')')
-    Label12.place(x=610, y=375)
-    
-    Label13 = tkinter.Label(top,text=T4[0][2] + '(' + T4[0][1] + ')')
-    Label13.place(x=250, y=490)
-    Label14 = tkinter.Label(top,text=T4[1][2] + '(' + T4[1][1] + ')')
-    Label14.place(x=370, y=490)
-    Label15 = tkinter.Label(top,text=T4[2][2] + '(' + T4[2][1] + ')')
-    Label15.place(x=490, y=490)
-    Label16 = tkinter.Label(top,text=T4[3][2] + '(' + T4[3][1] + ')')
-    Label16.place(x=610, y=490)
-    
-    Label17 = tkinter.Label(top,text=T5[0][2] + '(' + T5[0][1] + ')')
-    Label17.place(x=250, y=605)
-    Label18 = tkinter.Label(top,text=T5[1][2] + '(' + T5[1][1] + ')')
-    Label18.place(x=370, y=605)
-    Label19 = tkinter.Label(top,text=T5[2][2] + '(' + T5[2][1] + ')')
-    Label19.place(x=490, y=605)
-    Label20 = tkinter.Label(top,text=T5[3][2] + '(' + T5[3][1] + ')')
-    Label20.place(x=610, y=605)
-    
-        # button1= tkinter.Button(top,text='Start',fg='red',font=('黑体', 10),)
-        # button1.place(x=400,y=240)
+    Label9 = tkinter.Label(top, text=T3[0][2] + '\n(' + T3[0][1] + ')')
+    Label9.place(x=270, y=378)
+    Label10 = tkinter.Label(top, text=T3[1][2] + '\n(' + T3[1][1] + ')')
+    Label10.place(x=390, y=378)
+    Label11 = tkinter.Label(top, text=T3[2][2] + '\n(' + T3[2][1] + ')')
+    Label11.place(x=510, y=378)
+    Label12 = tkinter.Label(top, text=T3[3][2] + '\n(' + T3[3][1] + ')')
+    Label12.place(x=630, y=378)
+    LabelT3 = tkinter.Label(top, text="T3 Player(Cost Money:3)!", font=('Pursia', 13))
+    LabelT3.place(x=750, y=328)
+
+    Label13 = tkinter.Label(top, text=T4[0][2] + '\n(' + T4[0][1] + ')')
+    Label13.place(x=270, y=508)
+    Label14 = tkinter.Label(top, text=T4[1][2] + '\n(' + T4[1][1] + ')')
+    Label14.place(x=390, y=508)
+    Label15 = tkinter.Label(top, text=T4[2][2] + '\n(' + T4[2][1] + ')')
+    Label15.place(x=510, y=508)
+    Label16 = tkinter.Label(top, text=T4[3][2] + '\n(' + T4[3][1] + ')')
+    Label16.place(x=630, y=508)
+    LabelT4 = tkinter.Label(top, text="T4 Player(Cost Money:2)!", font=('Pursia', 13))
+    LabelT4.place(x=750, y=446)
+
+    Label17 = tkinter.Label(top, text=T5[0][2] + '\n(' + T5[0][1] + ')')
+    Label17.place(x=270, y=638)
+    Label18 = tkinter.Label(top, text=T5[1][2] + '\n(' + T5[1][1] + ')')
+    Label18.place(x=390, y=638)
+    Label19 = tkinter.Label(top, text=T5[2][2] + '\n(' + T5[2][1] + ')')
+    Label19.place(x=510, y=638)
+    Label20 = tkinter.Label(top, text=T5[3][2] + '\n(' + T5[3][1] + ')')
+    Label20.place(x=630, y=638)
+    LabelT5 = tkinter.Label(top, text="T5 Player(Cost Money:1)!", font=('Pursia', 13))
+    LabelT5.place(x=750, y=588)
+
+    LabelTeam = tkinter.Label(top, text="Player 1 Team", font=('黑体', 20))
+    LabelTeam.place(x=40, y=215)
+    LabelTeam2 = tkinter.Label(top, text="Player2 ROB Team", font=('黑体', 20))
+    LabelTeam2.place(x=860, y=215)
     
     img1 = tkinter.Label(top,text='player1', font=('黑体', 15), fg='Goldenrod')
     img1.place(x=40, y=250)
@@ -589,10 +607,10 @@ def Player_against_AI():
     img10.place(x=900, y=450)
     
     finish_button = tkinter.Button(top, text='exit', command=top.quit)
-    finish_button.place(x=890, y=550)
+    finish_button.place(x=75, y=600)
 
     done_button = tkinter.Button(top, text='done', command=final_page)
-    done_button.place(x=700, y=650)
+    done_button.place(x=75, y=550)
 
 
 
@@ -627,8 +645,8 @@ def Player_Against_Player():
                 has_choosen = True
                 playerTeam.append(currentchoice)
                 player_money -= cost(currentchoice)
-                money_label = tkinter.Label(top, text='money:' + str(player_money))
-                money_label.place(x=50, y=100)
+                money_label = tkinter.Label(top, text='Player_1 money:' + str(player_money))
+                money_label.place(x=50, y=150)
                 print(player_money)
             else:
                 has_choosen = False
@@ -645,8 +663,8 @@ def Player_Against_Player():
                 has_choosen = True
                 player2Team.append(currentchoice)
                 player2_money -= cost(currentchoice)
-                money_label = tkinter.Label(top, text='money:' + str(player2_money))
-                money_label.place(x=900, y=100)
+                money_label = tkinter.Label(top, text='Player_2 money:' + str(player2_money))
+                money_label.place(x=850, y=150)
                 print(player2_money)
             else:
                 has_choosen = False
@@ -698,109 +716,126 @@ def Player_Against_Player():
         turn_label = tkinter.Label(top, text='turn:' + str(turn))
         turn_label.place(x=50, y=50)
 
-    buttonok = tkinter.Button(top, text='ok!', command=okfunction)  # choose to change turn
-    buttonok.place(x=500, y=650)
 
-    buttonok = tkinter.Button(top, text='check!', command=check2)  # choose to change turn
-    buttonok.place(x=600, y=650)
 
-    money_label = tkinter.Label(top, text='money:' + str(player_money))
-    money_label.place(x=50, y=100)
-    money_label = tkinter.Label(top, text='money:' + str(player2_money))
-    money_label.place(x=900, y=100)
+    money_label = tkinter.Label(top, text='Player_1 money:' + str(player_money))
+    money_label.place(x=50, y=150)
+    money_label = tkinter.Label(top, text='Player_2 money:' + str(player2_money))
+    money_label.place(x=850, y=150)
 
+    #T1 Player
     button1 = tkinter.Button(top, image=p1, command=lambda: click1(0, T1))
-    button1.place(x=250, y=50)
+    button1.place(x=250, y=25)
     button2 = tkinter.Button(top, image=p2, command=lambda: click1(1, T1))
-    button2.place(x=370, y=50)
+    button2.place(x=370, y=25)
     button3 = tkinter.Button(top, image=p3, command=lambda: click1(2, T1))
-    button3.place(x=490, y=50)
+    button3.place(x=490, y=25)
     button4 = tkinter.Button(top, image=p4, command=lambda: click1(3, T1))
-    button4.place(x=610, y=50)
+    button4.place(x=610, y=25)
 
+    #T2 Player
     button5 = tkinter.Button(top, image=p5, command=lambda: click1(0, T2))
-    button5.place(x=250, y=165)
+    button5.place(x=250, y=155)
     button6 = tkinter.Button(top, image=p6, command=lambda: click1(1, T2))
-    button6.place(x=370, y=165)
+    button6.place(x=370, y=155)
     button7 = tkinter.Button(top, image=p7, command=lambda: click1(2, T2))
-    button7.place(x=490, y=165)
+    button7.place(x=490, y=155)
     button8 = tkinter.Button(top, image=p8, command=lambda: click1(3, T2))
-    button8.place(x=610, y=165)
+    button8.place(x=610, y=155)
 
+    #T3 Player
     button9 = tkinter.Button(top, image=p9, command=lambda: click1(0, T3))
-    button9.place(x=250, y=280)
+    button9.place(x=250, y=285)
     button10 = tkinter.Button(top, image=p10, command=lambda: click1(1, T3))
-    button10.place(x=370, y=280)
+    button10.place(x=370, y=285)
     button11 = tkinter.Button(top, image=p11, command=lambda: click1(2, T3))
-    button11.place(x=490, y=280)
+    button11.place(x=490, y=285)
     button12 = tkinter.Button(top, image=p12, command=lambda: click1(3, T3))
-    button12.place(x=610, y=280)
+    button12.place(x=610, y=285)
 
+    #T4 Player
     button13 = tkinter.Button(top, image=p13, command=lambda: click1(0, T4))
-    button13.place(x=250, y=395)
+    button13.place(x=250, y=415)
     button14 = tkinter.Button(top, image=p14, command=lambda: click1(1, T4))
-    button14.place(x=370, y=395)
+    button14.place(x=370, y=415)
     button15 = tkinter.Button(top, image=p15, command=lambda: click1(2, T4))
-    button15.place(x=490, y=395)
+    button15.place(x=490, y=415)
     button16 = tkinter.Button(top, image=p16, command=lambda: click1(3, T4))
-    button16.place(x=610, y=395)
+    button16.place(x=610, y=415)
 
+    #T5 Player
     button17 = tkinter.Button(top, image=p17, command=lambda: click1(0, T5))
-    button17.place(x=250, y=510)
+    button17.place(x=250, y=545)
     button18 = tkinter.Button(top, image=p18, command=lambda: click1(1, T5))
-    button18.place(x=370, y=510)
+    button18.place(x=370, y=545)
     button19 = tkinter.Button(top, image=p19, command=lambda: click1(2, T5))
-    button19.place(x=490, y=510)
+    button19.place(x=490, y=545)
     button20 = tkinter.Button(top, image=p20, command=lambda: click1(3, T5))
-    button20.place(x=610, y=510)
+    button20.place(x=610, y=545)
 
-    Label1 = tkinter.Label(top, text=T1[0][2] + '(' + T1[0][1] + ')')
-    Label1.place(x=250, y=145)
-    Label2 = tkinter.Label(top, text=T1[1][2] + '(' + T1[1][1] + ')')
-    Label2.place(x=370, y=145)
-    Label3 = tkinter.Label(top, text=T1[2][2] + '(' + T1[2][1] + ')')
-    Label3.place(x=490, y=145)
-    Label4 = tkinter.Label(top, text=T1[3][2] + '(' + T1[3][1] + ')')
-    Label4.place(x=610, y=145)
+    Label1 = tkinter.Label(top, text=T1[0][2] +  '\n(' + T1[0][1] + ')')
+    Label1.place(x=270, y=118)
+    Label2 = tkinter.Label(top, text=T1[1][2] + '\n(' + T1[1][1] + ')')
+    Label2.place(x=390, y=118)
+    Label3 = tkinter.Label(top, text=T1[2][2] + '\n(' + T1[2][1] + ')')
+    Label3.place(x=510, y=118)
+    Label4 = tkinter.Label(top, text=T1[3][2] + '\n(' + T1[3][1] + ')')
+    Label4.place(x=630, y=118)
+    LabelT1 = tkinter.Label(top,text="T1 Player(Cost Money:5)!",font=('Pursia', 13))
+    LabelT1.place(x=750,y=68)
 
-    Label5 = tkinter.Label(top, text=T2[0][2] + '(' + T2[0][1] + ')')
-    Label5.place(x=250, y=260)
-    Label6 = tkinter.Label(top, text=T2[1][2] + '(' + T2[1][1] + ')')
-    Label6.place(x=370, y=260)
-    Label7 = tkinter.Label(top, text=T2[2][2] + '(' + T2[2][1] + ')')
-    Label7.place(x=490, y=260)
-    Label8 = tkinter.Label(top, text=T2[3][2] + '(' + T2[3][1] + ')')
-    Label8.place(x=610, y=260)
+    Label5 = tkinter.Label(top, text=T2[0][2] + '\n(' + T2[0][1] + ')')
+    Label5.place(x=270, y=248)
+    Label6 = tkinter.Label(top, text=T2[1][2] + '\n(' + T2[1][1] + ')')
+    Label6.place(x=390, y=248)
+    Label7 = tkinter.Label(top, text=T2[2][2] + '\n(' + T2[2][1] + ')')
+    Label7.place(x=510, y=248)
+    Label8 = tkinter.Label(top, text=T2[3][2] + '\n(' + T2[3][1] + ')')
+    Label8.place(x=630, y=248)
+    LabelT2 = tkinter.Label(top, text="T2 Player(Cost Money:4)!", font=('Pursia', 13))
+    LabelT2.place(x=750, y=198)
 
-    Label9 = tkinter.Label(top, text=T3[0][2] + '(' + T3[0][1] + ')')
-    Label9.place(x=250, y=375)
-    Label10 = tkinter.Label(top, text=T3[1][2] + '(' + T3[1][1] + ')')
-    Label10.place(x=370, y=375)
-    Label11 = tkinter.Label(top, text=T3[2][2] + '(' + T3[2][1] + ')')
-    Label11.place(x=490, y=375)
-    Label12 = tkinter.Label(top, text=T3[3][2] + '(' + T3[3][1] + ')')
-    Label12.place(x=610, y=375)
 
-    Label13 = tkinter.Label(top, text=T4[0][2] + '(' + T4[0][1] + ')')
-    Label13.place(x=250, y=490)
-    Label14 = tkinter.Label(top, text=T4[1][2] + '(' + T4[1][1] + ')')
-    Label14.place(x=370, y=490)
-    Label15 = tkinter.Label(top, text=T4[2][2] + '(' + T4[2][1] + ')')
-    Label15.place(x=490, y=490)
-    Label16 = tkinter.Label(top, text=T4[3][2] + '(' + T4[3][1] + ')')
-    Label16.place(x=610, y=490)
+    Label9 = tkinter.Label(top, text=T3[0][2] + '\n(' + T3[0][1] + ')')
+    Label9.place(x=270, y=378)
+    Label10 = tkinter.Label(top, text=T3[1][2] + '\n(' + T3[1][1] + ')')
+    Label10.place(x=390, y=378)
+    Label11 = tkinter.Label(top, text=T3[2][2] + '\n(' + T3[2][1] + ')')
+    Label11.place(x=510, y=378)
+    Label12 = tkinter.Label(top, text=T3[3][2] + '\n(' + T3[3][1] + ')')
+    Label12.place(x=630, y=378)
+    LabelT3 = tkinter.Label(top, text="T3 Player(Cost Money:3)!", font=('Pursia', 13))
+    LabelT3.place(x=750, y=328)
 
-    Label17 = tkinter.Label(top, text=T5[0][2] + '(' + T5[0][1] + ')')
-    Label17.place(x=250, y=605)
-    Label18 = tkinter.Label(top, text=T5[1][2] + '(' + T5[1][1] + ')')
-    Label18.place(x=370, y=605)
-    Label19 = tkinter.Label(top, text=T5[2][2] + '(' + T5[2][1] + ')')
-    Label19.place(x=490, y=605)
-    Label20 = tkinter.Label(top, text=T5[3][2] + '(' + T5[3][1] + ')')
-    Label20.place(x=610, y=605)
+    Label13 = tkinter.Label(top, text=T4[0][2] + '\n(' + T4[0][1] + ')')
+    Label13.place(x=270, y=508)
+    Label14 = tkinter.Label(top, text=T4[1][2] + '\n(' + T4[1][1] + ')')
+    Label14.place(x=390, y=508)
+    Label15 = tkinter.Label(top, text=T4[2][2] + '\n(' + T4[2][1] + ')')
+    Label15.place(x=510, y=508)
+    Label16 = tkinter.Label(top, text=T4[3][2] + '\n(' + T4[3][1] + ')')
+    Label16.place(x=630, y=508)
+    LabelT4 = tkinter.Label(top, text="T4 Player(Cost Money:2)!", font=('Pursia', 13))
+    LabelT4.place(x=750, y=446)
+
+    Label17 = tkinter.Label(top, text=T5[0][2] + '\n(' + T5[0][1] + ')')
+    Label17.place(x=270, y=638)
+    Label18 = tkinter.Label(top, text=T5[1][2] + '\n(' + T5[1][1] + ')')
+    Label18.place(x=390, y=638)
+    Label19 = tkinter.Label(top, text=T5[2][2] + '\n(' + T5[2][1] + ')')
+    Label19.place(x=510, y=638)
+    Label20 = tkinter.Label(top, text=T5[3][2] + '\n(' + T5[3][1] + ')')
+    Label20.place(x=630, y=638)
+    LabelT5 = tkinter.Label(top, text="T5 Player(Cost Money:1)!", font=('Pursia', 13))
+    LabelT5.place(x=750, y=588)
 
     # button1= tkinter.Button(top,text='Start',fg='red',font=('黑体', 10),)
     # button1.place(x=400,y=240)
+    LabelTeam = tkinter.Label(top, text="Player 1 Team",font=('黑体', 20))
+    LabelTeam.place(x=40, y=215)
+    LabelTeam2 = tkinter.Label(top, text="Player 2 Team", font=('黑体', 20))
+    LabelTeam2.place(x=860, y=215)
+
 
     img1 = tkinter.Label(top, text='player1', font=('黑体', 15), fg='Goldenrod')
     img1.place(x=40, y=250)
@@ -833,11 +868,16 @@ def Player_Against_Player():
     img10.place(x=900, y=450)
 
     finish_button = tkinter.Button(top, text='exit', command=top.quit)
-    finish_button.place(x=890, y=550)
+    finish_button.place(x=75, y=600)
 
     done_button = tkinter.Button(top, text='done', command=final_page2)
-    done_button.place(x=700, y=650)
+    done_button.place(x=75, y=550)
 
+    buttonok = tkinter.Button(top, text='ok!', command=okfunction)  # choose to change turn
+    buttonok.place(x=475, y=670)
+
+    buttonok = tkinter.Button(top, text='check!', command=check2)  # choose to change turn
+    buttonok.place(x=75, y=575)
 
 def rule_page():
     top2 = tkinter.Toplevel()
