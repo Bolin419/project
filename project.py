@@ -293,6 +293,17 @@ def Strength_easy(Str):
 #print(a)
 #print(b)
 
+
+#UI code
+
+import tkinter
+import PIL
+import random
+from PIL import Image, ImageTk
+import csv
+from tkinter import messagebox
+
+
 def center_window(top, w, h):
     # 获取屏幕 宽、高
     ws = top.winfo_screenwidth()
@@ -322,6 +333,21 @@ canvas1.create_image(0, 0, image=background, anchor="nw")
 
 # Add Text
 canvas1.create_text(250, 100, font=('Pursia', 30), text="Welcome", fill='Yellow')
+
+
+# choose mode page
+def mode_page():
+    top4 = tkinter.Toplevel()
+    top4.title('Choosing Mode Page')
+    center_window(top4, 500, 350)
+    canvas2 = tkinter.Canvas(top4, width=500, height=350)
+    canvas2.pack(fill="both", expand=True)
+    canvas2.create_image(0, 0, image=background, anchor="nw")
+    canvas2.create_text(250, 25, text="The Mode of New Fantasy", font=('Pursia', 30), fill='Yellow')
+    lab1 = tkinter.Button(top4, text='Player Against Player', command=Player_Against_Player)
+    lab1.place(x=180, y=100)
+    lab2 = tkinter.Button(top4, text='Player Against Simple AI', command=Player_against_AI)
+    lab2.place(x=180, y=170)
 
 
 # set for turn and
@@ -519,6 +545,7 @@ order = int(roll[0])
 # print(order)
 text = roll[2]
 playerTeam = []
+player2Team = []
 robTeam = []
 
 
@@ -526,12 +553,45 @@ def final_page():
     top2 = tkinter.Toplevel()
     top2.title('Final Rating Page')
     center_window(top2, 500, 350)
-    S1=Strength(((tuple(robTeam))))
-    S2=Strength(((tuple(playerTeam))))
-    lab1 = tkinter.Label(top2, text='rating for RobTeam'+str(S1))
-    lab1.pack()
-    lab2 = tkinter.Label(top2, text='rating for PlayerTeam'+str(S2))
-    lab2.pack()
+    canvas2 = tkinter.Canvas(top2, width=500, height=350)
+    canvas2.pack(fill="both", expand=True)
+    canvas2.create_image(0, 0, image=background, anchor="nw")
+    canvas2.create_text(250, 25, text="The Final Rating Page", font=('Pursia', 30), fill='Yellow')
+    canvas2.create_text(120, 125, text=" Player Team ", font=('Pursia', 20), fill='Yellow')
+    canvas2.create_text(400, 125, text=" Robot Team", font=('Pursia', 20), fill='Yellow')
+    S1 = Strength(((tuple(robTeam))))
+    S2 = Strength(((tuple(playerTeam))))
+    canvas2.create_text(120, 160, text="Rating:" + str(S2), font=('Pursia', 20), fill='Yellow')
+    canvas2.create_text(400, 160, text="Rating:"+ str(S1), font=('Pursia', 20), fill='Yellow')
+    if S1 > S2:
+        Lab = tkinter.Label(canvas2, text="Robot Team Win", font=('Pursia', 30), foreground='yellow')
+        Lab.place(x=150, y=50)
+    else:
+        Lab = tkinter.Label(canvas2, text="Player Team Win", font=('Pursia', 30), foreground='yellow')
+        Lab.place(x=150, y=50)
+
+
+def final_page2():
+    top7 = tkinter.Toplevel()
+    top7.title('Final Rating Page')
+    center_window(top7, 500, 350)
+    canvas2 = tkinter.Canvas(top7, width=500, height=350)
+    canvas2.pack(fill="both", expand=True)
+    canvas2.create_image(0, 0, image=background, anchor="nw")
+    canvas2.create_text(250, 25, text="The Final Rating Page", font=('Pursia', 30), fill='Yellow')
+    canvas2.create_text(120, 125, text=" Team 1  ", font=('Pursia', 20), fill='Yellow')
+    canvas2.create_text(400, 125, text=" Team 2  ", font=('Pursia', 20), fill='Yellow')
+    S1 = Strength(((tuple(playerTeam))))
+    S2 = Strength(((tuple(player2Team))))
+    canvas2.create_text(120, 160, text="Rating:"+ str(S1), font=('Pursia', 20), fill='Yellow')
+    canvas2.create_text(400, 160, text="Rating:"+str(S2), font=('Pursia', 20), fill='Yellow')
+    if S1>S2:
+        Lab=tkinter.Label(canvas2,text="Team 1 Win",font=('Pursia', 30), foreground='yellow')
+        Lab.place(x=150,y=50)
+    else:
+        Lab = tkinter.Label(canvas2, text="Team 2 Win", font=('Pursia', 30), foreground='yellow')
+        Lab.place(x=150, y=50)
+
 
 
 def update_label(lab):
@@ -608,6 +668,7 @@ def cost(Str):
 
 player_money = 19
 robot_money = 19
+player2_money = 19
 
 
 def rob(pool, order, turn, money):
@@ -628,7 +689,12 @@ def check():
     print('playerTeam', playerTeam)
 
 
-def start():
+def check2():
+    print('player2Team', player2Team)
+    print('playerTeam', playerTeam)
+
+
+def Player_against_AI():
     top = tkinter.Toplevel()
     top.title('Fantasy League Team')
     center_window(top, 1000, 700)
@@ -638,41 +704,26 @@ def start():
     print(text)
     label2 = tkinter.Label(top, text=text)
     label2.place(x=50, y=30)
-    turn_label = tkinter.Label(top, text=turn)
+    turn_label = tkinter.Label(top, text='turn:' + str(turn))
     turn_label.place(x=50, y=50)
-
-    def okfunction():
-        global turn
-        selected = ""
-        if order == 0:
-            if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
-                selected = player_turn(pool, order, turn)
-            if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
-                selected = robot_turn(pool, order, turn)
-        if order == 1:
-            if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
-                selected = player_turn(pool, order, turn)
-            if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
-                selected = robot_turn(pool, order, turn)
-        pool.remove(selected)
-        turn = turn + 1
-        turn_label = tkinter.Label(top, text=turn)
-        turn_label.place(x=50, y=50)
-
-    buttonok = tkinter.Button(top, text='ok!', command=okfunction)  # choose to change turn
-    buttonok.place(x=500, y=650)
-
-    buttonok = tkinter.Button(top, text='check!', command=check)  # choose to change turn
-    buttonok.place(x=600, y=650)
 
     def player_turn(pool, order, turn):
         global player_money
+        has_choosen = True
         if (pool.__contains__(currentchoice)):
-            if (player_money >= player_money):
+            if (player_money >= cost(currentchoice)):
+                has_choosen = True
                 playerTeam.append(currentchoice)
-        player_money -= cost(currentchoice)
-        print(player_money)
-        return currentchoice
+                player_money -= cost(currentchoice)
+                money_label = tkinter.Label(top, text='money:' + str(player_money))
+                money_label.place(x=50, y=100)
+                print(player_money)
+            else:
+                has_choosen = False
+                messagebox.showerror('error', 'You don not have enough money!')
+        else:
+            messagebox.showerror('error', 'The player have already be chosen!')
+        return currentchoice, has_choosen
 
     def click1(x, y):
         global turn
@@ -693,6 +744,43 @@ def start():
         robot_money -= cost(currentchoice)
         update_label(tkinter.Label(top, text=a + '(' + a + ')'))
         return a
+
+    def okfunction():
+        global turn
+        chose = True
+        selected = ""
+        if order == 0:
+            if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                selected1 = player_turn(pool, order, turn)
+                selected = selected1[0]
+                chose = selected1[1]
+            if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                selected = robot_turn(pool, order, turn)
+        if order == 1:
+            if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                selected1 = player_turn(pool, order, turn)
+                selected = selected1[0]
+                chose = selected1[1]
+            if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                selected = robot_turn(pool, order, turn)
+
+        if chose == True:
+            pool.remove(selected)
+            turn = turn + 1
+        else:
+            turn = turn
+
+        turn_label = tkinter.Label(top, text='turn:' + str(turn))
+        turn_label.place(x=50, y=50)
+
+    buttonok = tkinter.Button(top, text='ok!', command=okfunction)  # choose to change turn
+    buttonok.place(x=500, y=650)
+
+    buttonok = tkinter.Button(top, text='check!', command=check)  # choose to change turn
+    buttonok.place(x=600, y=650)
+
+    money_label = tkinter.Label(top, text='money:' + str(player_money))
+    money_label.place(x=50, y=100)
 
     button1 = tkinter.Button(top, image=p1, command=lambda: click1(0, T1))
     button1.place(x=250, y=50)
@@ -824,6 +912,237 @@ def start():
     done_button.place(x=700, y=650)
 
 
+# Player Against Player
+def Player_Against_Player():
+    top = tkinter.Toplevel()
+    top.title('Fantasy League Team')
+    center_window(top, 1000, 700)
+
+    global turn, text, order
+    print(order)
+    print(text)
+    label2 = tkinter.Label(top, text=text)
+    label2.place(x=50, y=30)
+    turn_label = tkinter.Label(top, text='turn:' + str(turn))
+    turn_label.place(x=50, y=50)
+
+    def player_turn(pool, order, turn):
+        global player_money
+        has_choosen = True
+        if (pool.__contains__(currentchoice)):
+            if (player_money >= cost(currentchoice)):
+                has_choosen = True
+                playerTeam.append(currentchoice)
+                player_money -= cost(currentchoice)
+                money_label = tkinter.Label(top, text='money:' + str(player_money))
+                money_label.place(x=50, y=100)
+                print(player_money)
+            else:
+                has_choosen = False
+                messagebox.showerror('error', 'You don not have enough money!')
+        else:
+            messagebox.showerror('error', 'The player have already be chosen!')
+        return currentchoice, has_choosen
+
+    def playertwo_turn(pool, order, turn):
+        global player2_money
+        has_choosen = True
+        if (pool.__contains__(currentchoice)):
+            if (player2_money >= cost(currentchoice)):
+                has_choosen = True
+                player2Team.append(currentchoice)
+                player2_money -= cost(currentchoice)
+                money_label = tkinter.Label(top, text='money:' + str(player2_money))
+                money_label.place(x=900, y=100)
+                print(player2_money)
+            else:
+                has_choosen = False
+                messagebox.showerror('error', 'You don not have enough money!')
+        else:
+            messagebox.showerror('error', 'The player have already be chosen!')
+        return currentchoice, has_choosen
+
+    def click1(x, y):
+        global turn
+        global order
+        global currentchoice
+        currentchoice = y[x][2]
+        lab = tkinter.Label(top, text=currentchoice + '(' + y[x][1] + ')')
+        update_label(lab)
+
+    def okfunction():
+        global turn
+        chose = True
+        selected = ""
+        if order == 0:
+            if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                selected1 = player_turn(pool, order, turn)
+                selected = selected1[0]
+                chose = selected1[1]
+            if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                selected1 = playertwo_turn(pool, order, turn)
+                selected = selected1[0]
+                chose = selected1[1]
+        if order == 1:
+            if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                selected1 = player_turn(pool, order, turn)
+                selected = selected1[0]
+                chose = selected1[1]
+            if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                selected1 = playertwo_turn(pool, order, turn)
+                selected = selected1[0]
+                chose = selected1[1]
+
+        if chose == True:
+            pool.remove(selected)
+            turn = turn + 1
+        else:
+            turn = turn
+
+        turn_label = tkinter.Label(top, text='turn:' + str(turn))
+        turn_label.place(x=50, y=50)
+
+    buttonok = tkinter.Button(top, text='ok!', command=okfunction)  # choose to change turn
+    buttonok.place(x=500, y=650)
+
+    buttonok = tkinter.Button(top, text='check!', command=check2)  # choose to change turn
+    buttonok.place(x=600, y=650)
+
+    money_label = tkinter.Label(top, text='money:' + str(player_money))
+    money_label.place(x=50, y=100)
+    money_label = tkinter.Label(top, text='money:' + str(player2_money))
+    money_label.place(x=900, y=100)
+
+    button1 = tkinter.Button(top, image=p1, command=lambda: click1(0, T1))
+    button1.place(x=250, y=50)
+    button2 = tkinter.Button(top, image=p2, command=lambda: click1(1, T1))
+    button2.place(x=370, y=50)
+    button3 = tkinter.Button(top, image=p3, command=lambda: click1(2, T1))
+    button3.place(x=490, y=50)
+    button4 = tkinter.Button(top, image=p4, command=lambda: click1(3, T1))
+    button4.place(x=610, y=50)
+
+    button5 = tkinter.Button(top, image=p5, command=lambda: click1(0, T2))
+    button5.place(x=250, y=165)
+    button6 = tkinter.Button(top, image=p6, command=lambda: click1(1, T2))
+    button6.place(x=370, y=165)
+    button7 = tkinter.Button(top, image=p7, command=lambda: click1(2, T2))
+    button7.place(x=490, y=165)
+    button8 = tkinter.Button(top, image=p8, command=lambda: click1(3, T2))
+    button8.place(x=610, y=165)
+
+    button9 = tkinter.Button(top, image=p9, command=lambda: click1(0, T3))
+    button9.place(x=250, y=280)
+    button10 = tkinter.Button(top, image=p10, command=lambda: click1(1, T3))
+    button10.place(x=370, y=280)
+    button11 = tkinter.Button(top, image=p11, command=lambda: click1(2, T3))
+    button11.place(x=490, y=280)
+    button12 = tkinter.Button(top, image=p12, command=lambda: click1(3, T3))
+    button12.place(x=610, y=280)
+
+    button13 = tkinter.Button(top, image=p13, command=lambda: click1(0, T4))
+    button13.place(x=250, y=395)
+    button14 = tkinter.Button(top, image=p14, command=lambda: click1(1, T4))
+    button14.place(x=370, y=395)
+    button15 = tkinter.Button(top, image=p15, command=lambda: click1(2, T4))
+    button15.place(x=490, y=395)
+    button16 = tkinter.Button(top, image=p16, command=lambda: click1(3, T4))
+    button16.place(x=610, y=395)
+
+    button17 = tkinter.Button(top, image=p17, command=lambda: click1(0, T5))
+    button17.place(x=250, y=510)
+    button18 = tkinter.Button(top, image=p18, command=lambda: click1(1, T5))
+    button18.place(x=370, y=510)
+    button19 = tkinter.Button(top, image=p19, command=lambda: click1(2, T5))
+    button19.place(x=490, y=510)
+    button20 = tkinter.Button(top, image=p20, command=lambda: click1(3, T5))
+    button20.place(x=610, y=510)
+
+    Label1 = tkinter.Label(top, text=T1[0][2] + '(' + T1[0][1] + ')')
+    Label1.place(x=250, y=145)
+    Label2 = tkinter.Label(top, text=T1[1][2] + '(' + T1[1][1] + ')')
+    Label2.place(x=370, y=145)
+    Label3 = tkinter.Label(top, text=T1[2][2] + '(' + T1[2][1] + ')')
+    Label3.place(x=490, y=145)
+    Label4 = tkinter.Label(top, text=T1[3][2] + '(' + T1[3][1] + ')')
+    Label4.place(x=610, y=145)
+
+    Label5 = tkinter.Label(top, text=T2[0][2] + '(' + T2[0][1] + ')')
+    Label5.place(x=250, y=260)
+    Label6 = tkinter.Label(top, text=T2[1][2] + '(' + T2[1][1] + ')')
+    Label6.place(x=370, y=260)
+    Label7 = tkinter.Label(top, text=T2[2][2] + '(' + T2[2][1] + ')')
+    Label7.place(x=490, y=260)
+    Label8 = tkinter.Label(top, text=T2[3][2] + '(' + T2[3][1] + ')')
+    Label8.place(x=610, y=260)
+
+    Label9 = tkinter.Label(top, text=T3[0][2] + '(' + T3[0][1] + ')')
+    Label9.place(x=250, y=375)
+    Label10 = tkinter.Label(top, text=T3[1][2] + '(' + T3[1][1] + ')')
+    Label10.place(x=370, y=375)
+    Label11 = tkinter.Label(top, text=T3[2][2] + '(' + T3[2][1] + ')')
+    Label11.place(x=490, y=375)
+    Label12 = tkinter.Label(top, text=T3[3][2] + '(' + T3[3][1] + ')')
+    Label12.place(x=610, y=375)
+
+    Label13 = tkinter.Label(top, text=T4[0][2] + '(' + T4[0][1] + ')')
+    Label13.place(x=250, y=490)
+    Label14 = tkinter.Label(top, text=T4[1][2] + '(' + T4[1][1] + ')')
+    Label14.place(x=370, y=490)
+    Label15 = tkinter.Label(top, text=T4[2][2] + '(' + T4[2][1] + ')')
+    Label15.place(x=490, y=490)
+    Label16 = tkinter.Label(top, text=T4[3][2] + '(' + T4[3][1] + ')')
+    Label16.place(x=610, y=490)
+
+    Label17 = tkinter.Label(top, text=T5[0][2] + '(' + T5[0][1] + ')')
+    Label17.place(x=250, y=605)
+    Label18 = tkinter.Label(top, text=T5[1][2] + '(' + T5[1][1] + ')')
+    Label18.place(x=370, y=605)
+    Label19 = tkinter.Label(top, text=T5[2][2] + '(' + T5[2][1] + ')')
+    Label19.place(x=490, y=605)
+    Label20 = tkinter.Label(top, text=T5[3][2] + '(' + T5[3][1] + ')')
+    Label20.place(x=610, y=605)
+
+    # button1= tkinter.Button(top,text='Start',fg='red',font=('黑体', 10),)
+    # button1.place(x=400,y=240)
+
+    img1 = tkinter.Label(top, text='player1', font=('黑体', 15), fg='Goldenrod')
+    img1.place(x=40, y=250)
+
+    img2 = tkinter.Label(top, text='player2', font=('黑体', 15), fg='Goldenrod')
+    img2.place(x=40, y=300)
+
+    img3 = tkinter.Label(top, text='player3', font=('黑体', 15), fg='Goldenrod')
+    img3.place(x=40, y=350)
+
+    img4 = tkinter.Label(top, text='player4', font=('黑体', 15), fg='Goldenrod')
+    img4.place(x=40, y=400)
+
+    img5 = tkinter.Label(top, text='player5', font=('黑体', 15), fg='Goldenrod')
+    img5.place(x=40, y=450)
+
+    img6 = tkinter.Label(top, text='player6', font=('黑体', 15), fg='Goldenrod')
+    img6.place(x=900, y=250)
+
+    img7 = tkinter.Label(top, text='player7', font=('黑体', 15), fg='Goldenrod')
+    img7.place(x=900, y=300)
+
+    img8 = tkinter.Label(top, text='player8', font=('黑体', 15), fg='Goldenrod')
+    img8.place(x=900, y=350)
+
+    img9 = tkinter.Label(top, text='player9', font=('黑体', 15), fg='Goldenrod')
+    img9.place(x=900, y=400)
+
+    img10 = tkinter.Label(top, text='player10', font=('黑体', 15), fg='Goldenrod')
+    img10.place(x=900, y=450)
+
+    finish_button = tkinter.Button(top, text='exit', command=top.quit)
+    finish_button.place(x=890, y=550)
+
+    done_button = tkinter.Button(top, text='done', command=final_page2)
+    done_button.place(x=700, y=650)
+
+
 def rule_page():
     top2 = tkinter.Toplevel()
     top2.title('Rule of Game')
@@ -840,11 +1159,9 @@ def rule_page():
     canvas2.create_text(250, 90, text=rule, fill='Yellow')
 
 
-start_button = tkinter.Button(top3, text='Start', command=start)
+start_button = tkinter.Button(top3, text='Start', command=mode_page)
 start_button.place(x=225, y=250)
 rule_button = tkinter.Button(top3, text='rule', command=rule_page)
 rule_button.place(x=225, y=300)
 
 top3.mainloop()
-
-
