@@ -565,10 +565,10 @@ def final_page():
     canvas2.create_text(400, 160, text="Rating:"+ str(S1), font=('Pursia', 20), fill='Yellow')
     if S1 > S2:
         Lab = tkinter.Label(canvas2, text="Robot Team Win", font=('Pursia', 30), foreground='yellow')
-        Lab.place(x=150, y=50)
+        Lab.place(x=175, y=50)
     else:
         Lab = tkinter.Label(canvas2, text="Player Team Win", font=('Pursia', 30), foreground='yellow')
-        Lab.place(x=150, y=50)
+        Lab.place(x=175, y=50)
 
 
 def final_page2():
@@ -587,10 +587,10 @@ def final_page2():
     canvas2.create_text(400, 160, text="Rating:"+str(S2), font=('Pursia', 20), fill='Yellow')
     if S1>S2:
         Lab=tkinter.Label(canvas2,text="Team 1 Win",font=('Pursia', 30), foreground='yellow')
-        Lab.place(x=150,y=50)
+        Lab.place(x=175,y=50)
     else:
         Lab = tkinter.Label(canvas2, text="Team 2 Win", font=('Pursia', 30), foreground='yellow')
-        Lab.place(x=150, y=50)
+        Lab.place(x=175, y=50)
 
 
 
