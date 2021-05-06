@@ -5,10 +5,9 @@ import tkinter
 import PIL
 import random
 from PIL import Image, ImageTk
-import csv
+from tkinter import messagebox
 
-
-# player per
+# player PER
 csv_file = csv.reader(open('per.csv', 'r', encoding='utf8'))
 
 per = []
@@ -23,6 +22,8 @@ for i in per:
 #print(per_new)
 
 
+
+# Team Elo Rating
 csv_file1 = csv.reader(open('team Elo.csv'))
 new_teamELo = []
 for i in csv_file1:
@@ -30,6 +31,8 @@ for i in csv_file1:
 new_teamELo.remove(new_teamELo[0])
 #print(new_teamELo)
 
+
+# conversion the data method
 def conversion(data_from, data_to):
     mean1 = np.mean(data_from)
     mean2 = np.mean(data_to)
@@ -52,7 +55,7 @@ def conversion(data_from, data_to):
     return data_from
 
 
-
+# check the powerset of the input set
 def powerset(xs):
     q = []
     for i in range(1, 3):
@@ -60,10 +63,7 @@ def powerset(xs):
     return q
 
 
-#the data from 2krating
-Overall = [['Utah Jazz', 79], ['Lakers 1971', 82], ['Spurs', 83], ['Warriors', 85], ['Heat', 82],
-            ['Bulls', 82], ['Lakers 2001', 82], ['Celtics', 83], ['Sonics', 80], ['85-86 Celtics', 82],
-            ['Rocket', 80], ['Lakers 1987', 84], ['Suns', 80], ['Nuggest', 81]]
+
 
 def Get_webrat(Str): ###rating from 2krating
     Elo = 0
@@ -142,7 +142,13 @@ def Team_infor(String, Str1, Str2, Str3):
     t = t / f
     return t
 
-# each team k
+
+#the data from 2krating
+Overall = [['Utah Jazz', 79], ['Lakers 1971', 82], ['Spurs', 83], ['Warriors', 85], ['Heat', 82],
+            ['Bulls', 82], ['Lakers 2001', 82], ['Celtics', 83], ['Sonics', 80], ['85-86 Celtics', 82],
+            ['Rocket', 80], ['Lakers 1987', 84], ['Suns', 80], ['Nuggest', 81]]
+
+# each famouse group relation
 #cal_K_team = [[1, Team_infor('Utah Jazz', 'Karl Malone', 'John Stockton', 'Jeff Hornacek')],
             #  [2, Team_infor('Lakers 1971', 'Jerry West', 'Wilt Chamberlain', 'Gail Goodrich')],
             #  [3, Team_infor('Spurs', 'Tim Duncan', 'Tony Parker', 'Manu Ginobili')],
@@ -160,38 +166,41 @@ def Team_infor(String, Str1, Str2, Str3):
 
 #print(cal_K_team)
 
-#print(Team_infor('2016-17 Golden State Warriors','Klay Thompson\thompkl01','Stephen Curry\curryst01','null'))
-def whole_rating(str):  # from content get information
+# Get the Player PER when Input the Name
+def whole_rating(str):
     rat = 0
     for i in per:
         if i[1] == str:
             rat = i[4]
     return (rat)
 
+#whole_rating('Tony Parker\\parketo01')
 
 
-
+# Get the Player Team name when input the player Name
 def Get_WholeGP(Str):  # from content get information
     for i in per:
         if Str == i[1]:
             team = i[5]
     return team
 
+#print(Get_WholeGP('Tony Parker\\parketo01'))
 
 
+# Create the cache for memoization
 def Data_memo(set):
     Memo2 = {}
     for i in set:
-        if len(i) == 1:
+        if len(i) == 1: # a set have one player
             Ds = whole_rating(i[0])
             Memo2[i] = Ds
-        if len(i) == 2:
+        if len(i) == 2: # a set have two player
             G1=Get_WholeGP(i[0])
             G2=Get_WholeGP(i[1])
             if G1==G2:
                 rate=Team_infor(G1,i[0],i[1],'null')
                 Memo2[i]=rate
-        if len(i) == 3:
+        if len(i) == 3: # group with 3 palyers
             G1 = Get_WholeGP(i[0])
             G2 = Get_WholeGP(i[1])
             G3 = Get_WholeGP(i[2])
@@ -218,6 +227,7 @@ def Data_memo(set):
     return Memo2
 
 
+# get all of the player from the team
 def teamset(str):
     se = []
     for i in per:
@@ -226,23 +236,21 @@ def teamset(str):
     set = tuple(se)
     return set
 
-#print(Get_WholeGP('Tony Parker\\parketo01'))
 #print(teamset('2004-05 San Antonio Spurs'))
-#print(Strength(('Karl Malone', 'John Stockton', 'Jeff Hornacek')))
 
-# print(content)
+
 LLL = []
 for i in per:
     LLL.append(i[1])
 #print(LLL)
-
-
 powe_set = powerset(LLL)
 
 memo = Data_memo(powe_set)
 #print(memo[('Karl Malone\\malonka01','Jeff Hornacek\hornaje01')])
 #print(Team_infor('1997-98 Utah Jazz','Karl Malone\\malonka01','Jeff Hornacek\hornaje01','null'))
 
+
+# rating the player team
 def Strength(set):
     strength = 0;
     if not (set in memo):
@@ -252,13 +260,9 @@ def Strength(set):
         memo[set] = strength
     return memo[set]
 
-
-
 #print(Strength(('Karl Malone\\malonka01', 'John Stockton\\stockjo01')))
-
 #print(Strength(['Carmelo Anthony', 'Allen Iverson', 'Marcus Camby','Tim Duncan','Tony Parker']))
 #(Strength(('Tony Parker\\parketo01','Karl Malone\\malonka01')))
-
 #print(teamset('2007-08 Denver Nuggets'))
 #print(Strength(('Shawn Marion','Carmelon Anthony','Allen Iverson','Marcus Camby')))
 #print(Strength(('Carmelo Anthony', 'Allen Iverson', 'Marcus Camby','Tim Duncan','Tony Parker')))
@@ -267,16 +271,19 @@ def Strength(set):
 #print(Strength(teamset('2012-13 Miami Heat')))
 #print(Strength(teamset('2010-11 Dallas Mavericks')))
 
+# when input the team name get the number of player in the team
 def get_player_num(str):
     num = 0
     for i in per:
         if i[5] == str:
             num += 1
     return num
-
-
 #print(get_player_num('2007-08 Denver Nuggets'))
 
+
+
+
+#calculate the team rating based on average ! it is for evalutation
 def Strength_easy(Str):
     ave_rat = 0
     for i in per:
@@ -296,40 +303,27 @@ def Strength_easy(Str):
 
 #UI code
 
-import tkinter
-import PIL
-import random
-from PIL import Image, ImageTk
-import csv
-from tkinter import messagebox
-
 def center_window(top, w, h):
-    # 获取屏幕 宽、高
+    # get screen width height
     ws = top.winfo_screenwidth()
     hs = top.winfo_screenheight()
-    # 计算 x, y 位置
+    # calculate x,y
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
     top.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
-
+#First Page
 top3 = tkinter.Tk()
-
 currentchoice = ""
-
 center_window(top3, 500, 500)
 top3.title('New Fantasy')
 bg = Image.open('/Users/zbl/Desktop/nba-logo.png')
 bg = bg.resize((500, 500), Image.ANTIALIAS)
 background = ImageTk.PhotoImage(bg)
-canvas1 = tkinter.Canvas(top3, width=500,
-                         height=500)
-
+canvas1 = tkinter.Canvas(top3, width=500,height=500)
 canvas1.pack(fill="both", expand=True)
-
 # Display image
 canvas1.create_image(0, 0, image=background, anchor="nw")
-
 # Add Text
 canvas1.create_text(250, 100, font=('Pursia', 30), text="Welcome", fill='Yellow')
 
@@ -349,7 +343,7 @@ def mode_page():
     lab2.place(x=180, y=170)
 
 
-# set for turn and
+# set for turn and start order
 def decide_turn():
     small = 1
     big = 6
@@ -366,16 +360,15 @@ def decide_turn():
         print(text)
         return order, turn, text
 
-
+#the player infor csv
 csv_file5 = csv.reader(open('球员1.csv', 'r', encoding='utf8'))
 
-# print(csv_file)
 content5 = []
 for i in csv_file5:
     content5.append(i)
 content5.remove(['\ufeffNo.', 'Team name', 'Player name', 'rating'])
 
-
+#generate the T1 player
 def generate_list1():
     UI_list1 = []
     for i in content5:
@@ -383,7 +376,7 @@ def generate_list1():
             UI_list1.append(i)
     return UI_list1
 
-
+#generate the T2 Player
 def generate_list2():
     UI_list2 = []
     for i in content5:
@@ -391,7 +384,7 @@ def generate_list2():
             UI_list2.append(i)
     return UI_list2
 
-
+#generate the T3 Player
 def generate_list3():
     UI_list3 = []
     for i in content5:
@@ -399,7 +392,7 @@ def generate_list3():
             UI_list3.append(i)
     return UI_list3
 
-
+#generate the T4 Player
 def generate_list4():
     UI_list4 = []
     for i in content5:
@@ -407,7 +400,7 @@ def generate_list4():
             UI_list4.append(i)
     return UI_list4
 
-
+#generate the T5 Player
 def generate_list5():
     UI_list5 = []
     for i in content5:
@@ -415,7 +408,7 @@ def generate_list5():
             UI_list5.append(i)
     return UI_list5
 
-
+# random T1 player
 def randPlaye1():
     ranlist = random.sample(range(0, 10), 4)
     x = generate_list1()
@@ -424,7 +417,7 @@ def randPlaye1():
         UIplayer1.append(x[i])
     return UIplayer1
 
-
+# random T2 player
 def randPlaye2():
     ranlist = random.sample(range(0, 12), 4)
     x = generate_list2()
@@ -433,7 +426,7 @@ def randPlaye2():
         UIplayer2.append(x[i])
     return UIplayer2
 
-
+# random T3 player
 def randPlaye3():
     ranlist = random.sample(range(0, 8), 4)
     x = generate_list3()
@@ -442,7 +435,7 @@ def randPlaye3():
         UIplayer3.append(x[i])
     return UIplayer3
 
-
+# random T4 player
 def randPlaye4():
     ranlist = random.sample(range(0, 12), 4)
     x = generate_list4()
@@ -451,7 +444,7 @@ def randPlaye4():
         UIplayer4.append(x[i])
     return UIplayer4
 
-
+# random T5 player
 def randPlaye5():
     ranlist = random.sample(range(0, 5), 4)
     x = generate_list5()
@@ -543,11 +536,12 @@ turn = int(roll[1])
 order = int(roll[0])
 # print(order)
 text = roll[2]
+#create to save the final team information
 playerTeam = []
 player2Team = []
 robTeam = []
 
-
+#the rating page information for AI vs Player
 def final_page():
     top2 = tkinter.Toplevel()
     top2.title('Final Rating Page')
@@ -569,7 +563,7 @@ def final_page():
         Lab = tkinter.Label(canvas2, text="Player Team Win", font=('Pursia', 30), foreground='yellow')
         Lab.place(x=175, y=50)
 
-
+#the rating page information for Player1 vs player2
 def final_page2():
     top7 = tkinter.Toplevel()
     top7.title('Final Rating Page')
@@ -669,7 +663,7 @@ player_money = 19
 robot_money = 19
 player2_money = 19
 
-
+#the rob chooss function
 def rob(pool, order, turn, money):
     for player in pool:
         for choice in T3:
@@ -693,6 +687,8 @@ def check2():
     print('playerTeam', playerTeam)
 
 
+
+# the mode
 def Player_against_AI():
     top = tkinter.Toplevel()
     top.title('Fantasy League Team')
@@ -724,6 +720,7 @@ def Player_against_AI():
             messagebox.showerror('error', 'The player have already be chosen! \n or You have not choose the player!')
         return currentchoice, has_choosen
 
+    #when click means choose the player but not comfirm
     def click1(x, y):
         global turn
         global order
@@ -744,6 +741,7 @@ def Player_against_AI():
         update_label(tkinter.Label(top, text=a + '(' + a + ')'))
         return a
 
+    #confirm
     def okfunction():
         global turn
         chose = True
@@ -772,6 +770,7 @@ def Player_against_AI():
         turn_label = tkinter.Label(top, text='turn:' + str(turn))
         turn_label.place(x=50, y=50)
 
+    #button and label
     buttonok = tkinter.Button(top, text='ok!', command=okfunction)  # choose to change turn
     buttonok.place(x=475, y=670)
 
@@ -1186,7 +1185,7 @@ def Player_Against_Player():
     buttonok = tkinter.Button(top, text='check!', command=check2)  # choose to change turn
     buttonok.place(x=75, y=575)
 
-
+#rule page 
 def rule_page():
     top2 = tkinter.Toplevel()
     top2.title('Rule of Game')
