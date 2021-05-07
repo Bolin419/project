@@ -686,7 +686,35 @@ def check2():
     print('player2Team', player2Team)
     print('playerTeam', playerTeam)
 
+def check_who(order,turn):
+    str=''
+    if order==0:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                str='Player 1 Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                str='Robot Choosing'
+    if order==1:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                str='Robot Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                str='Player 1 Choosing'
 
+    return str
+
+def check_whotwo(order, turn):
+    str = ''
+    if order == 0:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+            str = 'Player 1 Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+            str = 'Player 2 Choosing'
+    if order == 1:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+            str = 'Player 2 Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+            str = 'Player 1 Choosing'
+
+    return str
 
 # the mode
 def Player_against_AI():
@@ -725,8 +753,6 @@ def Player_against_AI():
         global turn
         global order
         global currentchoice
-        l = []
-
         currentchoice = y[x][2]
         lab = tkinter.Label(top, text=currentchoice + '(' + y[x][1] + ')')
         update_label(lab)
@@ -767,7 +793,7 @@ def Player_against_AI():
         else:
             turn = turn
 
-        turn_label = tkinter.Label(top, text='turn:' + str(turn))
+        turn_label = tkinter.Label(top, text='turn: '+str(turn)+" "+check_who(order,turn))
         turn_label.place(x=50, y=50)
 
     #button and label
@@ -1019,7 +1045,7 @@ def Player_Against_Player():
         else:
             turn = turn
 
-        turn_label = tkinter.Label(top, text='turn:' + str(turn))
+        turn_label = tkinter.Label(top, text='turn: '+str(turn)+" "+check_whotwo(order,turn))
         turn_label.place(x=50, y=50)
 
 
