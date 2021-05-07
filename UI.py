@@ -370,8 +370,36 @@ def check2():
     print('player2Team', player2Team)
     print('playerTeam', playerTeam)
 
+#Player vs AI
+def check_who(order,turn):
+    str=''
+    if order==0:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                str='Player 1 Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                str='Robot Choosing'
+    if order==1:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+                str='Robot Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+                str='Player 1 Choosing'
 
+    return str
+#Player vs Player
+def check_whotwo(order, turn):
+    str = ''
+    if order == 0:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+            str = 'Player 1 Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+            str = 'Player 2 Choosing'
+    if order == 1:
+        if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
+            str = 'Player 2 Choosing'
+        if turn == 1 or turn == 2 or turn == 5 or turn == 6 or turn == 9:
+            str = 'Player 1 Choosing'
 
+    return str
 
 #Player Against AI mode
 def Player_against_AI():
@@ -442,7 +470,7 @@ def Player_against_AI():
                 selected = selected1[0]
                 chose = selected1[1]
             if turn == 0 or turn == 3 or turn == 4 or turn == 7 or turn == 8:
-                selected = robot_turn(pool,order,turn)
+                selected = robot_turn(pool, order, turn)
 
         if chose==True:
             pool.remove(selected)
@@ -450,7 +478,7 @@ def Player_against_AI():
         else:
             turn=turn
 
-        turn_label = tkinter.Label(top, text= 'turn:'+str(turn))
+        turn_label = tkinter.Label(top, text= 'turn: '+str(turn)+" "+check_who(order,turn))
         turn_label.place(x=50, y=50)
 
 
@@ -458,8 +486,8 @@ def Player_against_AI():
     buttonok = tkinter.Button(top,text='ok!', command=okfunction)  # choose to change turn
     buttonok.place(x=475, y=670)
 
-    buttonok = tkinter.Button(top,text='check!', command=check)  # choose to change turn
-    buttonok.place(x=75, y=575)
+    buttonok2 = tkinter.Button(top,text='check!', command=check)  # choose to change turn
+    buttonok2.place(x=75, y=575)
 
     money_label = tkinter.Label(top, text='Player_money: ' +str(player_money))
     money_label.place(x=50, y=150)
