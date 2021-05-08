@@ -317,7 +317,7 @@ top3 = tkinter.Tk()
 currentchoice = ""
 center_window(top3, 500, 500)
 top3.title('New Fantasy')
-bg = Image.open('/Users/zbl/Desktop/nba-logo.png')
+bg = Image.open('nba-logo.png')
 bg = bg.resize((500, 500), Image.ANTIALIAS)
 background = ImageTk.PhotoImage(bg)
 canvas1 = tkinter.Canvas(top3, width=500,height=500)
