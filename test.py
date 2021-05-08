@@ -61,9 +61,32 @@ x4=['team chemistry calculate','average rating','2krating web']
 y33=[502.3292008371377,531.2867166837774]
 xnew=['team chemistry','average']
 
+# conversion the data method
+def conversion(data_from, data_to):
+    mean1 = np.mean(data_from)
+    mean2 = np.mean(data_to)
+
+    std1 = np.std(data_from)
+    std2 = np.std(data_to)
+
+    samples = 10000
+    a=np.sort(np.random.normal(mean1, std1, samples))
+    b=np.sort(np.random.normal(mean2, std2, samples))
+
+    for counter in range(0,len(data_from)):
+        dist = float('inf')
+        closest_index = 0
+        for i in range (0,len(a)):
+            if dist > abs(a[i] - data_from[counter]):
+                dist = abs(a[i] - data_from[counter])
+                closest_index = i
+        data_from[counter] = b[closest_index]
+    return data_from
+
 b=[13.341740330165228, 12.396297665659592, 14.197889149878442, 27.539857408149167, 15.42671404319414, 25.124411558285384, 14.85620919921549, 12.828105839473984, 9.22988287038697, 18.006871004149627, 5.4719739074744504, 12.223431528900685, 11.468236982400741, 5.094856169943804, 7.19625346221563, 12.94976718062297, 8.92235257836244]
 c=[13.735714285714284, 13.053846153846154, 13.576470588235294, 14.594117647058821, 12.838888888888889, 12.966666666666667, 13.973333333333331, 13.426666666666666, 14.076923076923077, 14.191666666666665, 12.866666666666667, 14.491666666666665, 12.5, 11.33529411764706, 13.012500000000001, 13.061111111111112, 14.031249999999998]
 
+c=conversion(c,b)
 r = 0;
 r2 = 0
 r3 = 0
@@ -88,10 +111,10 @@ x3 = np.array(c)
 x4=np.array(x4)
 xnew = np.array(r2)
 
-plt.plot(y,x1,color='red',label='conversion elo')
+#plt.plot(y,x1,color='red',label='conversion elo')
 plt.plot(y,x2,color='green',label='calculate result')
 plt.plot(y,x3,color='blue',label='average result')
-plt.plot(y,x5,color='purple',label='2k rating result')
+#plt.plot(y,x5,color='purple',label='2k rating result')
 #plt.bar(X,y33,color='blue',label='data difference')
 #plt.bar(xnew,y33,color='blue',label='data difference')
 plt.legend()
