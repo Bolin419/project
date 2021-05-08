@@ -720,7 +720,7 @@ def check_whotwo(order, turn):
 def Player_against_AI():
     top = tkinter.Toplevel()
     top.title('Fantasy League Team')
-    center_window(top, 1000, 700)
+    center_window(top, 1100, 700)
 
     global turn, text, order
     print(order)
@@ -959,7 +959,7 @@ def Player_against_AI():
 def Player_Against_Player():
     top = tkinter.Toplevel()
     top.title('Fantasy League Team')
-    center_window(top, 1000, 700)
+    center_window(top, 1100, 700)
 
     global turn, text, order
     print(order)
