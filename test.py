@@ -49,7 +49,7 @@ def conversion(data_from, data_to):
 
 new_e=conversion(teamElo, player_per)
 #print((new_e))
-d =[79,79,83,85,82,82,82,83,80,82,78,84,80,81,78,83,83]
+d =[80,80,83,85,82,82,82,83,80,82,78,84,80,81,78,83,83]
 new_d=conversion(d,player_per)
 print(d)
 y=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
